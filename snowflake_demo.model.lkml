@@ -8,7 +8,7 @@ include: "*.dashboard"
 
 datagroup: snowflake_demo_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+  max_cache_age: "5 minutes"
 }
 
 persist_with: snowflake_demo_default_datagroup
