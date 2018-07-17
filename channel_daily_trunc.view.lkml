@@ -106,4 +106,61 @@ view: channel_daily_trunc {
     type: count
     drill_fields: [channelshortname, channellongname, channel_name, finalchannelname]
   }
+
+  measure: households {
+    type: number
+    sql: ${TABLE}."hhCount" ;;
+  }
+
+  measure: hours {
+    type: number
+    sql: ${TABLE}."hhHours" ;;
+    value_format: "0.##"
+  }
+
+  measure: total_households {
+    type: sum
+    sql: ${TABLE}."hhCount" ;;
+    drill_fields: [created_month, created_date, created_year, created_day_of_week_index]
+  }
+
+  measure: total_hours {
+    type: sum
+    sql: ${TABLE}."hhHours" ;;
+  }
+
+  measure: avg_hour_per_channel {
+    type: number
+    sql: ${TABLE}."hhHours"/${TABLE}."hhCount" ;;
+    value_format: "0.00%"
+  }
+
+  measure: avg_hours {
+    type: average
+    sql: ${TABLE}."hhHours";;
+    value_format: "#,##0.00"
+  }
+
+  dimension_group: created {
+    type: time
+    timeframes: [date, month, day_of_week, day_of_week_index, day_of_year, year]
+    sql: ${TABLE}."date" ;;
+  }
+
+  dimension: until_this_day {
+    type: yesno
+    sql: ${created_day_of_year} <= DAYOFYEAR(current_date) AND ${created_day_of_year} >= 0 ;;
+  }
+
+  dimension_group: updated {
+    type: time
+    timeframes: [time, date, week, month, raw]
+    sql: ${TABLE}."DATE" ;;
+  }
+
+  measure: last_updated_date {
+    type: date
+    sql: MAX(${updated_raw}) ;;
+    convert_tz: no
+  }
 }
