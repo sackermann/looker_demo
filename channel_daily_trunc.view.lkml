@@ -198,12 +198,14 @@ view: channel_daily_trunc {
     type: average
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_month_mtd value: "yes"}
+    value_format: "#,##0.00"
   }
 
   measure: current_mtd_hours_average {
     type: average
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this month"}
+    value_format: "#,##0.00"
   }
 
 }
