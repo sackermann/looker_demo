@@ -170,4 +170,17 @@ view: channel_daily_trunc {
       and ${date_raw} <= dateadd(month, -1, current_timestamp())  ;;
   }
 
+  measure: current_mtd_credits_used {
+    type: sum
+    sql:  ${TABLE}."hhCount";;
+    filters: {field: date_date value: "this month"}
+  }
+
+  measure: prior_mtd_credits_used {
+    type: sum
+    sql:  ${TABLE}."hhCount";;
+    filters: {field: is_prior_month_mtd value: "yes"}
+
+  }
+
 }
