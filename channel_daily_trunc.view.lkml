@@ -180,7 +180,18 @@ view: channel_daily_trunc {
     type: sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: is_prior_month_mtd value: "yes"}
+  }
 
+  measure: current_mtd_hours {
+    type: sum
+    sql:  ${TABLE}."hhHours";;
+    filters: {field: date_date value: "this month"}
+  }
+
+  measure: prior_mtd_hours {
+    type: sum
+    sql:  ${TABLE}."hhHours";;
+    filters: {field: is_prior_month_mtd value: "yes"}
   }
 
 }
