@@ -166,8 +166,8 @@ view: channel_daily_trunc {
 
   dimension: is_prior_month_mtd {
     type: yesno
-    sql:  EXTRACT(month, ${updated_raw}) = EXTRACT(month, current_timestamp()) - 1
-      and ${updated_raw} <= dateadd(month, -1, current_timestamp())  ;;
+    sql:  EXTRACT(month, ${date_raw}) = EXTRACT(month, current_timestamp()) - 1
+      and ${date_raw} <= dateadd(month, -1, current_timestamp())  ;;
   }
 
 }
