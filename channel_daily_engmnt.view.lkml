@@ -117,7 +117,7 @@ view: channel_daily_engmnt {
   measure: total_households {
     type: sum
     sql: ${TABLE}."hhCount" ;;
-    drill_fields: [date_month, date_date, date_year, date_day_of_week_index]
+    drill_fields: [date_month, date_date, date_year, date_day_of_week_index, engagement_level]
   }
 
   measure: total_hours {
@@ -190,6 +190,12 @@ view: channel_daily_engmnt {
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this month"}
     value_format: "#,##0.00"
+  }
+
+  measure: prior_ytd_households {
+    type:  sum
+    sql:  ${TABLE}."hhCount";;
+    filters: {field: until_this_day value: "yes"}
   }
 
 }
