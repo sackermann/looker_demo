@@ -154,6 +154,12 @@ view: channel_daily_engmnt {
       and ${date_raw} <= dateadd(month, -1, current_timestamp())  ;;
   }
 
+  dimension: is_prior_year_ytd {
+    type: yesno
+    sql:  EXTRACT(year, ${date_raw}) = EXTRACT(year, current_timestamp()) - 1
+      and ${date_raw} <= dateadd(year, -1, current_timestamp())  ;;
+  }
+
   measure: current_mtd_households {
     type: sum
     sql:  ${TABLE}."hhCount";;
@@ -195,6 +201,7 @@ view: channel_daily_engmnt {
   measure: prior_ytd_households {
     type:  sum
     sql:  ${TABLE}."hhCount";;
+    filters: {field: is_prior_year_ytd value: "yes"}
     filters: {field: until_this_day value: "yes"}
   }
 
