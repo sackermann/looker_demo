@@ -121,27 +121,27 @@ view: channel_daily_trunc {
   measure: total_households {
     type: sum
     sql: ${TABLE}."hhCount" ;;
-    drill_fields: [created_month, created_date]
+    drill_fields: [created_month]
   }
 
   measure: total_hours {
     type: sum
     sql: ${TABLE}."hhHours" ;;
-    drill_fields: [created_month, created_date]
+    drill_fields: [created_month]
   }
 
   measure: avg_hour_per_channel {
     type: number
     sql: ${TABLE}."hhHours"/${TABLE}."hhCount" ;;
     value_format: "0.00%"
-    drill_fields: [created_month, created_date]
+    drill_fields: [created_month]
   }
 
   measure: avg_hours {
     type: average
     sql: ${TABLE}."hhHours";;
     value_format: "#,##0.00"
-    drill_fields: [created_month, created_date]
+    drill_fields: [created_month]
   }
 
   dimension_group: created {
