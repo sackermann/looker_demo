@@ -205,4 +205,9 @@ view: channel_daily_engmnt {
     filters: {field: until_this_day value: "yes"}
   }
 
+  measure: current_ytd_households {
+    type: sum
+    sql:  ${TABLE}."hhCount";;
+    filters: {field: date_date value: "this year"}
+  }
 }
