@@ -14,3 +14,4 @@ datagroup: snowflake_demo_att_default_datagroup {
 persist_with: snowflake_demo_att_default_datagroup
 
 explore: channel_daily_trunc{}
+explore: channel_daily_engmnt{}
