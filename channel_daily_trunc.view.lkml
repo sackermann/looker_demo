@@ -155,7 +155,7 @@ view: channel_daily_trunc {
   dimension_group: updated {
     type: time
     timeframes: [time, date, week, month, raw]
-    sql: ${TABLE}."DATE" ;;
+    sql: ${TABLE}."date" ;;
   }
 
   measure: last_updated_date {
