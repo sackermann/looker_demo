@@ -134,14 +134,14 @@ view: channel_daily_trunc {
     type: number
     sql: ${TABLE}."hhHours"/${TABLE}."hhCount" ;;
     value_format: "0.00%"
-    drill_fields: [created_month]
+    drill_fields: [created_month, avg_hour_per_channel]
   }
 
   measure: avg_hours {
     type: average
     sql: ${TABLE}."hhHours";;
     value_format: "#,##0.00"
-    drill_fields: [created_month]
+    drill_fields: [created_month, avg_hours]
   }
 
   dimension_group: created {
@@ -177,28 +177,28 @@ view: channel_daily_trunc {
     type: sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: date_date value: "this month"}
-    drill_fields: [created_date]
+    drill_fields: [created_date, current_mtd_households]
   }
 
   measure: prior_mtd_households {
     type: sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: is_prior_month_mtd value: "yes"}
-    drill_fields: [created_date]
+    drill_fields: [created_date, current_mtd_households]
   }
 
   measure: current_mtd_hours {
     type: sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this month"}
-    drill_fields: [created_date]
+    drill_fields: [created_date, current_mtd_hours]
   }
 
   measure: prior_mtd_hours {
     type: sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_month_mtd value: "yes"}
-    drill_fields: [created_date]
+    drill_fields: [created_date, prior_mtd_hours]
   }
 
   measure: prior_mtd_hours_average {
@@ -206,7 +206,7 @@ view: channel_daily_trunc {
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_month_mtd value: "yes"}
     value_format: "#,##0.00"
-    drill_fields: [created_date]
+    drill_fields: [created_date, prior_mtd_hours_average]
   }
 
   measure: current_mtd_hours_average {
@@ -214,6 +214,6 @@ view: channel_daily_trunc {
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this month"}
     value_format: "#,##0.00"
-    drill_fields: [created_date]
+    drill_fields: [created_date, current_mtd_hours]
   }
 }
