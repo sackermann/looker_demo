@@ -111,7 +111,7 @@ view: channel_daily_engmnt {
 
   measure: count {
     type: count
-    drill_fields: [channelshortname, channellongname, channel_name, finalchannelname]
+    drill_fields: [channelshortname, channellongname, channel_name, finalchannelname, engagement_level]
   }
 
   measure: total_households {
