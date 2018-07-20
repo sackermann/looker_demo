@@ -121,13 +121,13 @@ view: channel_daily_trunc {
   measure: total_households {
     type: sum
     sql: ${TABLE}."hhCount" ;;
-    drill_fields: [created_month, total_households]
+    drill_fields: [created_month, total_households, channel_details*]
   }
 
   measure: total_hours {
     type: sum
     sql: ${TABLE}."hhHours" ;;
-    drill_fields: [created_month, total_hours]
+    drill_fields: [created_month, total_hours, channel_details*]
   }
 
   measure: avg_hour_per_channel {
@@ -215,5 +215,9 @@ view: channel_daily_trunc {
     filters: {field: date_date value: "this month"}
     value_format: "#,##0.00"
     drill_fields: [created_date, current_mtd_hours]
+  }
+
+  set: channel_details{
+    fields: [channelshortname, created_date, channelgenre, platform, playbacktype, total_households, total_hours]
   }
 }
