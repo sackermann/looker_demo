@@ -25,6 +25,7 @@ view: channel_daily_trunc {
   dimension: channelshortname {
     type: string
     sql: ${TABLE}."channelshortname" ;;
+    drill_fields: [channel_details*]
   }
 
   dimension_group: date {
@@ -121,13 +122,13 @@ view: channel_daily_trunc {
   measure: total_households {
     type: sum
     sql: ${TABLE}."hhCount" ;;
-    drill_fields: [created_month, total_households, channel_details*]
+    drill_fields: [created_month, total_households]
   }
 
   measure: total_hours {
     type: sum
     sql: ${TABLE}."hhHours" ;;
-    drill_fields: [created_month, total_hours, channel_details*]
+    drill_fields: [created_month, total_hours]
   }
 
   measure: avg_hour_per_channel {
