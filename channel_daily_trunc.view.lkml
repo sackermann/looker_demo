@@ -219,6 +219,6 @@ view: channel_daily_trunc {
   }
 
   set: channel_details{
-    fields: [channelshortname, created_date, channelgenre, platform, playbacktype, total_households, total_hours]
+    fields: [created_date, channelgenre, platform, playbacktype, total_households, total_hours]
   }
 }
