@@ -25,6 +25,7 @@ view: channel_daily_engmnt {
   dimension: channelshortname {
     type: string
     sql: ${TABLE}."channelshortname" ;;
+    drill_fields: [channel_details*]
   }
 
   dimension_group: date {
@@ -209,5 +210,9 @@ view: channel_daily_engmnt {
     type: sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: date_date value: "this year"}
+  }
+
+  set: channel_details{
+    fields: [date_date, channelgenre, platform, playbacktype, total_households, total_hours, engagement_level]
   }
 }
