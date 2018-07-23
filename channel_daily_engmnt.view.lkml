@@ -206,9 +206,22 @@ view: channel_daily_engmnt {
     filters: {field: until_this_day value: "yes"}
   }
 
+  measure: prior_ytd_hours {
+    type:  sum
+    sql:  ${TABLE}."hhHours";;
+    filters: {field: is_prior_year_ytd value: "yes"}
+    filters: {field: until_this_day value: "yes"}
+  }
+
   measure: current_ytd_households {
     type: sum
     sql:  ${TABLE}."hhCount";;
+    filters: {field: date_date value: "this year"}
+  }
+
+  measure: current_ytd_hours {
+    type: sum
+    sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this year"}
   }
 
