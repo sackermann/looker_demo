@@ -149,6 +149,18 @@ view: channel_daily_engmnt {
     convert_tz: no
   }
 
+  dimension: is_two_weeks_ago {
+    type: yesno
+    sql:  EXTRACT(week, ${date_raw}) = EXTRACT(week, current_timestamp()) - 2
+      and ${date_raw} <= dateadd(week, -2, current_timestamp())  ;;
+  }
+
+  dimension: is_last_week {
+    type: yesno
+    sql:  EXTRACT(week, ${date_raw}) = EXTRACT(week, current_timestamp()) - 1
+      and ${date_raw} <= dateadd(week, -1, current_timestamp())  ;;
+  }
+
   dimension: is_prior_month_mtd {
     type: yesno
     sql:  EXTRACT(month, ${date_raw}) = EXTRACT(month, current_timestamp()) - 1
@@ -224,6 +236,19 @@ view: channel_daily_engmnt {
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this year"}
   }
+
+  measure: two_weeks_ago_hours {
+    type:  sum
+    sql:  ${TABLE}."hhHours";;
+    filters: {field: is_two_weeks_ago value: "yes"}
+  }
+
+  measure: last_week_hours {
+    type:  sum
+    sql:  ${TABLE}."hhHours";;
+    filters: {field: is_last_week value: "yes"}
+  }
+
 
   set: channel_details{
     fields: [date_date, channelgenre, platform, playbacktype, total_households, total_hours, engagement_level]
