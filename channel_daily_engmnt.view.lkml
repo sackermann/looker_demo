@@ -250,6 +250,18 @@ view: channel_daily_engmnt {
   }
 
 
+  measure: two_weeks_ago_households {
+    type:  sum
+    sql:  ${TABLE}."hhCount";;
+    filters: {field: is_two_weeks_ago value: "yes"}
+  }
+
+  measure: last_week_households {
+    type:  sum
+    sql:  ${TABLE}."hhCount";;
+    filters: {field: is_last_week value: "yes"}
+  }
+
   set: channel_details{
     fields: [date_date, channelgenre, platform, playbacktype, total_households, total_hours, engagement_level]
   }
