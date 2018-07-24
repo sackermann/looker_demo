@@ -284,7 +284,7 @@ view: channel_daily_engmnt {
   }
 
   dimension: test_hours {
-    sql: ${TABLE}.hhHours ;;
+    sql: ${TABLE}."hhHours" ;;
     html:
     {% if prior_ytd_hours > current_ytd_hours %}
       <p style="color: green; background-color: lightblue; font-size:100%; text-align:center">{{ rendered_value }}</p>
