@@ -124,18 +124,21 @@ view: channel_daily_engmnt {
   measure: total_hours {
     type: sum
     sql: ${TABLE}."hhHours" ;;
+    drill_fields: [date_month, total_hours]
   }
 
   measure: avg_hour_per_channel {
     type: number
     sql: ${TABLE}."hhHours"/${TABLE}."hhCount" ;;
     value_format: "0.00%"
+    drill_fields: [date_month, avg_hour_per_channel]
   }
 
   measure: avg_hours {
     type: average
     sql: ${TABLE}."hhHours";;
     value_format: "#,##0.00"
+    drill_fields: [date_month, avg_hours]
   }
 
   dimension: until_this_day {
@@ -177,24 +180,28 @@ view: channel_daily_engmnt {
     type: sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: date_date value: "this month"}
+    drill_fields: [date_date, current_mtd_households]
   }
 
   measure: prior_mtd_households {
     type: sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: is_prior_month_mtd value: "yes"}
+    drill_fields: [date_date, prior_mtd_households]
   }
 
   measure: current_mtd_hours {
     type: sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this month"}
+    drill_fields: [date_date, current_mtd_hours]
   }
 
   measure: prior_mtd_hours {
     type: sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_month_mtd value: "yes"}
+    drill_fields: [date_date, prior_mtd_hours]
   }
 
   measure: prior_mtd_hours_average {
@@ -202,6 +209,7 @@ view: channel_daily_engmnt {
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_month_mtd value: "yes"}
     value_format: "#,##0.00"
+    drill_fields: [date_date, prior_mtd_hours_average]
   }
 
   measure: current_mtd_hours_average {
@@ -209,6 +217,7 @@ view: channel_daily_engmnt {
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this month"}
     value_format: "#,##0.00"
+    drill_fields: [date_date, current_mtd_hours_average]
   }
 
   measure: prior_ytd_households {
@@ -216,6 +225,7 @@ view: channel_daily_engmnt {
     sql:  ${TABLE}."hhCount";;
     filters: {field: is_prior_year_ytd value: "yes"}
     filters: {field: until_this_day value: "yes"}
+    drill_fields: [date_month, total_hours]
   }
 
   measure: prior_ytd_hours {
@@ -223,30 +233,35 @@ view: channel_daily_engmnt {
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_year_ytd value: "yes"}
     filters: {field: until_this_day value: "yes"}
+    drill_fields: [date_month, prior_ytd_hours]
   }
 
   measure: current_ytd_households {
     type: sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: date_date value: "this year"}
+    drill_fields: [date_month, current_ytd_households]
   }
 
   measure: current_ytd_hours {
     type: sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this year"}
+    drill_fields: [date_month, current_ytd_hours]
   }
 
   measure: two_weeks_ago_hours {
     type:  sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_hours]
   }
 
   measure: last_week_hours {
     type:  sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_last_week value: "yes"}
+    drill_fields: [date_date, last_week_hours]
   }
 
 
@@ -254,12 +269,14 @@ view: channel_daily_engmnt {
     type:  sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_households]
   }
 
   measure: last_week_households {
     type:  sum
     sql:  ${TABLE}."hhCount";;
     filters: {field: is_last_week value: "yes"}
+    drill_fields: [date_date, last_week_hours]
   }
 
   set: channel_details{
