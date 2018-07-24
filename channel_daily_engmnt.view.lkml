@@ -287,9 +287,9 @@ view: channel_daily_engmnt {
     sql: ${TABLE}."hhHours" ;;
     html:
     {% if prior_ytd_hours > current_ytd_hours %}
-      <p style="color: green; background-color: lightblue; font-size:100%; text-align:center">{{ rendered_value }}</p>
+      <p style="color: green; background-color: green; font-size:100%; text-align:center">{{ rendered_value }}</p>
     {% elsif prior_ytd_hours == current_ytd_hours %}
-      <p style="color: red; background-color: lightgreen; font-size:100%; text-align:center">{{ rendered_value }}</p>
+      <p style="color: red; background-color: red; font-size:100%; text-align:center">{{ rendered_value }}</p>
     {% else %}
       <p style="color: black; background-color: orange; font-size:100%; text-align:center">{{ rendered_value }}</p>
     {% endif %}
