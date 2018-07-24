@@ -118,7 +118,7 @@ view: channel_daily_engmnt {
   measure: total_households {
     type: sum
     sql: ${TABLE}."hhCount" ;;
-    drill_fields: [channel_details*]
+    drill_fields: [date_month, total_households]
   }
 
   measure: total_hours {
