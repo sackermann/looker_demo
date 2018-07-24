@@ -283,7 +283,7 @@ view: channel_daily_engmnt {
     fields: [date_date, channelgenre, platform, playbacktype, total_households, total_hours, engagement_level]
   }
 
-  measure: test_hours {
+  dimension: test_hours {
     sql: ${TABLE}.hhHours ;;
     html:
     {% if prior_ytd_hours > current_ytd_hours %}
