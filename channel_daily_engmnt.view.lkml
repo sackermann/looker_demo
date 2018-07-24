@@ -67,6 +67,7 @@ view: channel_daily_engmnt {
 
   dimension: hh_hours {
     type: number
+    value_format: "0"
     sql: ${TABLE}."hhHours" ;;
   }
 
