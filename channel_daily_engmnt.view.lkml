@@ -67,7 +67,7 @@ view: channel_daily_engmnt {
 
   dimension: hh_hours {
     type: number
-    value_format: "0"
+    value_format: "#,##0"
     sql: ${TABLE}."hhHours" ;;
   }
 
@@ -125,7 +125,7 @@ view: channel_daily_engmnt {
   measure: total_hours {
     type: sum
     sql: ${TABLE}."hhHours" ;;
-    value_format: "0"
+    value_format: "#,##0"
     drill_fields: [date_month, total_hours]
   }
 
@@ -139,7 +139,7 @@ view: channel_daily_engmnt {
   measure: avg_hours {
     type: average
     sql: ${TABLE}."hhHours";;
-    value_format: "0"
+    value_format: "0.00%"
     drill_fields: [date_month, avg_hours]
   }
 
@@ -195,7 +195,7 @@ view: channel_daily_engmnt {
   measure: current_mtd_hours {
     type: sum
     sql:  ${TABLE}."hhHours";;
-    value_format: "0"
+    value_format: "#,##0"
     filters: {field: date_date value: "this month"}
     drill_fields: [date_date, current_mtd_hours]
   }
@@ -204,7 +204,7 @@ view: channel_daily_engmnt {
     type: sum
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_month_mtd value: "yes"}
-    value_format: "0"
+    value_format: "#,##0"
     drill_fields: [date_date, prior_mtd_hours]
   }
 
@@ -212,7 +212,7 @@ view: channel_daily_engmnt {
     type: average
     sql:  ${TABLE}."hhHours";;
     filters: {field: is_prior_month_mtd value: "yes"}
-    value_format: "0"
+    value_format: "#,##0"
     drill_fields: [date_date, prior_mtd_hours_average]
   }
 
@@ -220,7 +220,7 @@ view: channel_daily_engmnt {
     type: average
     sql:  ${TABLE}."hhHours";;
     filters: {field: date_date value: "this month"}
-    value_format: "0"
+    value_format: "#,##0"
     drill_fields: [date_date, current_mtd_hours_average]
   }
 
@@ -235,7 +235,7 @@ view: channel_daily_engmnt {
   measure: prior_ytd_hours {
     type:  sum
     sql:  ${TABLE}."hhHours";;
-    value_format: "0"
+    value_format: "#,##0"
     filters: {field: is_prior_year_ytd value: "yes"}
     filters: {field: until_this_day value: "yes"}
     drill_fields: [date_month, prior_ytd_hours]
@@ -251,7 +251,7 @@ view: channel_daily_engmnt {
   measure: current_ytd_hours {
     type: sum
     sql:  ${TABLE}."hhHours";;
-    value_format: "0"
+    value_format: "#,##0"
     filters: {field: date_date value: "this year"}
     drill_fields: [date_month, current_ytd_hours]
   }
@@ -259,7 +259,7 @@ view: channel_daily_engmnt {
   measure: two_weeks_ago_hours {
     type:  sum
     sql:  ${TABLE}."hhHours";;
-    value_format: "0"
+    value_format: "#,##0"
     filters: {field: is_two_weeks_ago value: "yes"}
     drill_fields: [date_date, two_weeks_ago_hours]
   }
@@ -267,7 +267,7 @@ view: channel_daily_engmnt {
   measure: last_week_hours {
     type:  sum
     sql:  ${TABLE}."hhHours";;
-    value_format: "0"
+    value_format: "#,##0"
     filters: {field: is_last_week value: "yes"}
     drill_fields: [date_date, last_week_hours]
   }
