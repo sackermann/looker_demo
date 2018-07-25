@@ -13,5 +13,15 @@ datagroup: snowflake_demo_att_default_datagroup {
 
 persist_with: snowflake_demo_att_default_datagroup
 
+explore: channel_hierarchy {hidden: yes}
+
+
 explore: channel_daily_trunc{}
-explore: channel_daily_engmnt{}
+
+explore: channel_daily_engmnt{
+  join: channel_hierarchy {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${channel_daily_engmnt.channelobjid} = ${channel_hierarchy.chan_obj_id};;
+  }
+}
