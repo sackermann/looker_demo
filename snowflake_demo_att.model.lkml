@@ -14,6 +14,7 @@ datagroup: snowflake_demo_att_default_datagroup {
 persist_with: snowflake_demo_att_default_datagroup
 
 explore: channel_hierarchy {hidden: yes}
+explore: vdo_chnl_dim {hidden: yes}
 
 
 explore: channel_daily_trunc{}
