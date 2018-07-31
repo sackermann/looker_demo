@@ -26,3 +26,5 @@ explore: channel_daily_engmnt{
     sql_on: ${channel_daily_engmnt.channelobjid} = ${channel_hierarchy.chan_obj_id};;
   }
 }
+
+explore: ntwk_titl_vwrshp_sumr{}
