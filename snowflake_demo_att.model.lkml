@@ -31,6 +31,6 @@ explore: ntwk_titl_vwrshp_sumr{
   join: ntwk_vwrshp_sumr {
     type:  left_outer
     relationship: one_to_one
-    sql_on: ${ntwk_titl_vwrshp_sumr.tot_vist_cnt} = ${ntwk_vwrshp_sumr.tot_vist_cnt} & ${ntwk_titl_vwrshp_sumr.data_dt} = ${ntwk_vwrshp_sumr.data_dt} ;;
+    sql_on: ${ntwk_titl_vwrshp_sumr.tot_vist_cnt} = ${ntwk_vwrshp_sumr.tot_vist_cnt} AND ${ntwk_titl_vwrshp_sumr.data_dt} = ${ntwk_vwrshp_sumr.data_dt} ;;
   }
 }
