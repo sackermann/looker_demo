@@ -15,7 +15,7 @@ persist_with: snowflake_demo_att_default_datagroup
 
 explore: channel_hierarchy {hidden: yes}
 explore: vdo_chnl_dim {hidden: yes}
-
+explore: ntwk_vwrshp_sumr{hidden: yes}
 
 explore: channel_daily_trunc{}
 
@@ -27,4 +27,10 @@ explore: channel_daily_engmnt{
   }
 }
 
-explore: ntwk_titl_vwrshp_sumr{}
+explore: ntwk_titl_vwrshp_sumr{
+  join: ntwk_vwrshp_sumr {
+    type:  left_outer
+    relationship: one_to_one
+    sql_on: ${ntwk_titl_vwrshp_sumr.tot_vist_cnt} = ${ntwk_vwrshp_sumr.tot_vist_cnt} & ${ntwk_titl_vwrshp_sumr.data_dt} = ${ntwk_vwrshp_sumr.data_dt} ;;
+  }
+}
