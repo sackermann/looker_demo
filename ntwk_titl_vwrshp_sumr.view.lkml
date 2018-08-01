@@ -352,4 +352,11 @@ view: ntwk_titl_vwrshp_sumr {
     value_format: "#,##0"
     filters: {field: date_date value: "this year"}
   }
+
+  measure: adj_min_avg {
+    type: sum
+    sql:  ${TABLE}."AVG_ADJ_VW_DUR_IN_MIN"/COUNT(${TABLE}."AVG_ADJ_VW_DUR_IN_MIN");;
+    value_format: "#,##0"
+    filters: {field: date_date value: "this year"}
+  }
 }
