@@ -356,5 +356,6 @@ view: ntwk_titl_vwrshp_sumr {
   measure: adj_min_avg {
     type: number
     sql:  ${adj_min_sum}/COUNT(${TABLE}."DATA_DT");;
+    value_format: "0.00"
   }
 }
