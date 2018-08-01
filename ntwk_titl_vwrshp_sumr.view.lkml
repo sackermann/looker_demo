@@ -345,4 +345,11 @@ view: ntwk_titl_vwrshp_sumr {
     datatype: date
     sql: ${TABLE}."DATA_DT" ;;
   }
+
+  measure: adj_min_sum {
+    type: sum
+    sql:  ${TABLE}."tot_adj_vw_dur_in_min";;
+    value_format: "#,##0"
+    filters: {field: date_date value: "this year"}
+  }
 }
