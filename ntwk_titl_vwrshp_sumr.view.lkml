@@ -358,7 +358,6 @@ view: ntwk_titl_vwrshp_sumr {
     value_format: "#,##0"
   }
 
-
   measure: adj_min_sum_ytd {
     type: sum
     sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
