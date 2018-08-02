@@ -346,6 +346,13 @@ view: ntwk_titl_vwrshp_sumr {
     sql: ${TABLE}."DATA_DT" ;;
   }
 
+  measure: adj_vstr_sum {
+    type: sum
+    sql:  ${TABLE}."TOT_ADJ_VSTR_CNT";;
+    value_format: "#,##0"
+  }
+
+
   measure: adj_min_sum {
     type: sum
     sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
