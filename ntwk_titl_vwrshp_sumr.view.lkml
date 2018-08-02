@@ -352,17 +352,23 @@ view: ntwk_titl_vwrshp_sumr {
     value_format: "#,##0"
   }
 
-
   measure: adj_min_sum {
+    type: sum
+    sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
+
+
+  measure: adj_min_sum_ytd {
     type: sum
     sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
     value_format: "#,##0"
     filters: {field: date_date value: "this year"}
   }
 
-  measure: adj_min_avg {
+  measure: adj_min_avg_ytd {
     type: number
-    sql:  ${adj_min_sum}/COUNT(${TABLE}."DATA_DT");;
+    sql:  ${adj_min_sum_ytd}/COUNT(${TABLE}."DATA_DT");;
     value_format: "0.00"
   }
 }
