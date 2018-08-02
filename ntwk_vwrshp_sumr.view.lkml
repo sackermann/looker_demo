@@ -370,4 +370,56 @@ view: ntwk_vwrshp_sumr {
     datatype: date
     sql: ${TABLE}."DATA_DT" ;;
   }
+
+  measure: type1_cat1_tot_adj_vw_min_sum {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT1_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
+
+  measure: type1_cat1_tot_adj_vw_min_sum_ytd {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT1_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: date_date value: "this year"}
+  }
+
+  measure: type1_cat2_tot_adj_vw_min_sum {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT2_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
+
+  measure: type1_cat2_tot_adj_vw_min_sum_ytd {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT2_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: date_date value: "this year"}
+  }
+
+  measure: type1_cat3_tot_adj_vw_min_sum {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT3_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
+
+  measure: type1_cat3_tot_adj_vw_min_sum_ytd {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT3_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: date_date value: "this year"}
+  }
+
+  measure: type1_cat4_tot_adj_vw_min_sum {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT4_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
+
+  measure: type1_cat4_tot_adj_vw_min_sum_ytd {
+    type: sum
+    sql:  ${TABLE}."TYPE1_CAT4_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: date_date value: "this year"}
+  }
 }
