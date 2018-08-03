@@ -414,4 +414,81 @@ view: ntwk_vwrshp_sumr {
     sql:  ${TABLE}."TYPE1_CAT4_TOT_ADJ_VW_DUR_IN_MIN";;
     filters: {field: date_date value: "this year"}
   }
+
+  dimension: is_two_weeks_ago {
+    type: yesno
+    sql:  EXTRACT(week, ${date_raw}) = EXTRACT(week, current_timestamp()) - 2
+      and ${date_raw} <= dateadd(week, -2, current_timestamp())  ;;
+  }
+
+  dimension: is_last_week {
+    type: yesno
+    sql:  EXTRACT(week, ${date_raw}) = EXTRACT(week, current_timestamp()) - 1
+      and ${date_raw} <= dateadd(week, -1, current_timestamp())  ;;
+  }
+
+  measure: two_weeks_ago_type1_cat1 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT1_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_type1_cat1]
+  }
+
+  measure: last_week_type1_cat1 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT1_TOT_ADJ_VW_DUR_IN_MIN";;
+    filters: {field: is_last_week value: "yes"}
+    value_format: "#,##0"
+    drill_fields: [date_date, last_week_type1_cat1]
+  }
+
+  measure: two_weeks_ago_type1_cat2 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT2_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_type1_cat2]
+  }
+
+  measure: last_week_type1_cat2 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT2_TOT_ADJ_VW_DUR_IN_MIN";;
+    filters: {field: is_last_week value: "yes"}
+    value_format: "#,##0"
+    drill_fields: [date_date, last_week_type1_cat2]
+  }
+
+  measure: two_weeks_ago_type1_cat3 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT3_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_type1_cat3]
+  }
+
+  measure: last_week_type1_cat3 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT3_TOT_ADJ_VW_DUR_IN_MIN";;
+    filters: {field: is_last_week value: "yes"}
+    value_format: "#,##0"
+    drill_fields: [date_date, last_week_type1_cat3]
+  }
+
+  measure: two_weeks_ago_type1_cat4 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT4_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_type1_cat4]
+  }
+
+  measure: last_week_type1_cat4 {
+    type:  sum
+    sql:  ${TABLE}."TYPE1_CAT4_TOT_ADJ_VW_DUR_IN_MIN";;
+    filters: {field: is_last_week value: "yes"}
+    value_format: "#,##0"
+    drill_fields: [date_date, last_week_type1_cat4]
+  }
+
 }
