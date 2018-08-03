@@ -409,6 +409,7 @@ view: ntwk_titl_vwrshp_sumr {
   measure: two_weeks_ago_visitors {
     type:  sum
     sql:  ${TABLE}."TOT_ADJ_VSTR_CNT";;
+    value_format: "#,##0"
     filters: {field: is_two_weeks_ago value: "yes"}
     drill_fields: [date_date, two_weeks_ago_visitors]
   }
@@ -417,7 +418,7 @@ view: ntwk_titl_vwrshp_sumr {
     type:  sum
     sql:  ${TABLE}."TOT_ADJ_VSTR_CNT";;
     filters: {field: is_last_week value: "yes"}
-    value_format: "0"
+    value_format: "#,##0"
     drill_fields: [date_date, last_week_visitors]
   }
 }
