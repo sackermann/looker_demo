@@ -377,4 +377,47 @@ view: ntwk_titl_vwrshp_sumr {
     sql: ${adj_min_sum_ytd}/${adj_vstr_sum_ytd};;
     value_format: "0.00"
   }
+
+  dimension: is_two_weeks_ago {
+    type: yesno
+    sql:  EXTRACT(week, ${date_raw}) = EXTRACT(week, current_timestamp()) - 2
+      and ${date_raw} <= dateadd(week, -2, current_timestamp())  ;;
+  }
+
+  dimension: is_last_week {
+    type: yesno
+    sql:  EXTRACT(week, ${date_raw}) = EXTRACT(week, current_timestamp()) - 1
+      and ${date_raw} <= dateadd(week, -1, current_timestamp())  ;;
+  }
+
+  measure: two_weeks_ago_mins {
+    type:  sum
+    sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_mins]
+  }
+
+  measure: last_week_mins {
+    type:  sum
+    sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+    filters: {field: is_last_week value: "yes"}
+    drill_fields: [date_date, last_week_mins]
+  }
+
+  measure: two_weeks_ago_visitors {
+    type:  sum
+    sql:  ${TABLE}."TOT_ADJ_VSTR_CNT";;
+    filters: {field: is_two_weeks_ago value: "yes"}
+    drill_fields: [date_date, two_weeks_ago_visitors]
+  }
+
+  measure: last_week_visitors {
+    type:  sum
+    sql:  ${TABLE}."TOT_ADJ_VSTR_CNT";;
+    filters: {field: is_last_week value: "yes"}
+    value_format: "0"
+    drill_fields: [date_date, last_week_visitors]
+  }
 }
