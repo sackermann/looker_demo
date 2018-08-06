@@ -47,7 +47,7 @@ view: ntwk_titl_vwrshp_sumr {
   }
 
   dimension: epsd_seas_num {
-    type: number
+    type: string
     sql: ${TABLE}."EPSD_SEAS_NUM" ;;
   }
 
