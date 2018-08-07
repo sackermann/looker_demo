@@ -44,7 +44,7 @@ view: temp_dtv_sumr {
   dimension: penetration {
     type: number
     sql: ${TABLE}."PENETRATION" ;;
-    value_format: "#%"
+    value_format: "00.#%"
   }
 
   dimension: percent_hours_of_all_groups {
