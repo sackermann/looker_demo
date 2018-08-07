@@ -18,6 +18,7 @@ explore: vdo_chnl_dim {hidden: yes}
 explore: ntwk_vwrshp_sumr{hidden: yes}
 
 explore: channel_daily_trunc{}
+explore: temp_dtv_sumr{}
 
 explore: channel_daily_engmnt{
   join: channel_hierarchy {
