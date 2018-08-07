@@ -134,7 +134,7 @@ view: temp_dtv_sumr {
   dimension: vod_hrs_percent {
     type: number
     sql: ${TABLE}."VOD_HRS_PERCENT" ;;
-    value_format: "#\%"
+    value_format: "#.##\%"
   }
 
   measure: count {
