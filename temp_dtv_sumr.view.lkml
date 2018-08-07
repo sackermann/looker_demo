@@ -9,7 +9,7 @@ view: temp_dtv_sumr {
   dimension: dvr_hrs_percent {
     type: number
     sql: ${TABLE}."DVR_HRS_PERCENT" ;;
-    value_format: "#\%"
+    value_format: "#.##\%"
   }
 
   dimension: hrs_per_viewing_hh {
@@ -26,7 +26,7 @@ view: temp_dtv_sumr {
   dimension: live_hrs_percent {
     type: number
     sql: ${TABLE}."LIVE_HRS_PERCENT" ;;
-    value_format: "#\%"
+    value_format: "#.##\%"
   }
 
   dimension: movie {
@@ -117,7 +117,7 @@ view: temp_dtv_sumr {
   dimension: tve_hrs_percent {
     type: number
     sql: ${TABLE}."TVE_HRS_PERCENT" ;;
-    value_format: "#\%"
+    value_format: "#.##\%"
   }
 
   dimension: unknown {
