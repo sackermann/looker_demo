@@ -13,14 +13,18 @@ datagroup: snowflake_demo_att_default_datagroup {
 
 persist_with: snowflake_demo_att_default_datagroup
 
+#### BRDS ####
 explore: channel_hierarchy {hidden: yes}
 explore: vdo_chnl_dim {hidden: yes}
-explore: ntwk_vwrshp_sumr{hidden: yes}
-explore: demogr_attr_dim{hidden: yes}
-
 explore: channel_daily_trunc{}
 explore: temp_dtv_sumr{}
 
+#### DIM TABLES ####
+explore: ntwk_vwrshp_sumr{hidden: yes}
+explore: demogr_attr_dim{hidden: yes}
+
+
+#### JOINS BETWEEN TABLES ####
 explore: channel_daily_engmnt{
   join: channel_hierarchy {
     type: left_outer
