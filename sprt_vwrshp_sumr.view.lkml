@@ -110,4 +110,16 @@ view: sprt_vwrshp_sumr {
     type: count
     drill_fields: [channel_name]
   }
+
+  measure: households {
+    type: sum
+    sql:  ${TABLE}."NUM_HHS";;
+    value_format: "#,##0"
+  }
+
+  measure: hours {
+    type: sum
+    sql:  ${TABLE}."VIEW_DUR_HRS";;
+    value_format: "#,##0"
+  }
 }
