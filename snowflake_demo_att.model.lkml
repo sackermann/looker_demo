@@ -16,6 +16,7 @@ persist_with: snowflake_demo_att_default_datagroup
 explore: channel_hierarchy {hidden: yes}
 explore: vdo_chnl_dim {hidden: yes}
 explore: ntwk_vwrshp_sumr{hidden: yes}
+explore: demogr_attr_dim{hidden: yes}
 
 explore: channel_daily_trunc{}
 explore: temp_dtv_sumr{}
