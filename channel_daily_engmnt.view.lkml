@@ -8,23 +8,23 @@ view: channel_daily_engmnt {
 
   dimension: channelgenre {
     type: string
-    sql: ${TABLE}."channelgenre" ;;
+    sql: ${TABLE}.channelgenre ;;
   }
 
   dimension: channellongname {
     type: string
-    sql: ${TABLE}."channellongname" ;;
+    sql: ${TABLE}.channellongname ;;
   }
 
   dimension: channelobjid {
     type: number
     value_format_name: id
-    sql: ${TABLE}."channelobjid" ;;
+    sql: ${TABLE}.channelobjid ;;
   }
 
   dimension: channelshortname {
     type: string
-    sql: ${TABLE}."channelshortname" ;;
+    sql: ${TABLE}.channelshortname ;;
     drill_fields: [channel_details*]
   }
 
@@ -42,73 +42,73 @@ view: channel_daily_engmnt {
     ]
     convert_tz: no
     datatype: date
-    sql: ${TABLE}."date" ;;
+    sql: ${TABLE}.date ;;
   }
 
   dimension: dma_cd {
     type: string
-    sql: ${TABLE}."dma_cd" ;;
+    sql: ${TABLE}.dma_cd ;;
   }
 
   dimension: engagement_level {
     type: string
-    sql: ${TABLE}."engagement_level" ;;
+    sql: ${TABLE}.engagement_level ;;
   }
 
   dimension: finalchannelname {
     type: string
-    sql: ${TABLE}."finalchannelname" ;;
+    sql: ${TABLE}.finalchannelname ;;
   }
 
   dimension: hh_count {
     type: number
-    sql: ${TABLE}."hhCount" ;;
+    sql: ${TABLE}.hhCount ;;
   }
 
   dimension: hh_hours {
     type: number
     value_format: "#,##0"
-    sql: ${TABLE}."hhHours" ;;
+    sql: ${TABLE}.hhHours ;;
   }
 
   dimension: local_chang_flg {
     type: string
-    sql: ${TABLE}."local_chang_flg" ;;
+    sql: ${TABLE}.local_chang_flg ;;
   }
 
   dimension: majorchannel {
     type: string
-    sql: ${TABLE}."majorchannel" ;;
+    sql: ${TABLE}.majorchannel ;;
   }
 
   dimension: minorchannel {
     type: string
-    sql: ${TABLE}."minorchannel" ;;
+    sql: ${TABLE}.minorchannel ;;
   }
 
   dimension: platform {
     type: string
-    sql: ${TABLE}."platform" ;;
+    sql: ${TABLE}.platform ;;
   }
 
   dimension: playbacktype {
     type: string
-    sql: ${TABLE}."playbacktype" ;;
+    sql: ${TABLE}.playbacktype ;;
   }
 
   dimension: premiumsuite {
     type: string
-    sql: ${TABLE}."premiumsuite" ;;
+    sql: ${TABLE}.premiumsuite ;;
   }
 
   dimension: region {
     type: string
-    sql: ${TABLE}."region" ;;
+    sql: ${TABLE}.region ;;
   }
 
   dimension: resolution {
     type: string
-    sql: ${TABLE}."resolution" ;;
+    sql: ${TABLE}.resolution ;;
   }
 
   measure: count {
@@ -118,27 +118,27 @@ view: channel_daily_engmnt {
 
   measure: total_households {
     type: sum
-    sql: ${TABLE}."hhCount" ;;
+    sql: ${TABLE}.hhCount ;;
     drill_fields: [date_month, total_households]
   }
 
   measure: total_hours {
     type: sum
-    sql: ${TABLE}."hhHours" ;;
+    sql: ${TABLE}.hhHours ;;
     value_format: "#,##0"
     drill_fields: [date_month, total_hours]
   }
 
   measure: avg_hour_per_channel {
     type: number
-    sql: ${TABLE}."hhHours"/${TABLE}."hhCount" ;;
+    sql: ${TABLE}.hhHours/${TABLE}.hhCount ;;
     value_format: "0.00%"
     drill_fields: [date_month, avg_hour_per_channel]
   }
 
   measure: avg_hours {
     type: average
-    sql: ${TABLE}."hhHours";;
+    sql: ${TABLE}.hhHours;;
     value_format: "0.00%"
     drill_fields: [date_month, avg_hours]
   }
@@ -180,21 +180,21 @@ view: channel_daily_engmnt {
 
   measure: current_mtd_households {
     type: sum
-    sql:  ${TABLE}."hhCount";;
+    sql:  ${TABLE}.hhCount;;
     filters: {field: date_date value: "this month"}
     drill_fields: [date_date, current_mtd_households]
   }
 
   measure: prior_mtd_households {
     type: sum
-    sql:  ${TABLE}."hhCount";;
+    sql:  ${TABLE}.hhCount;;
     filters: {field: is_prior_month_mtd value: "yes"}
     drill_fields: [date_date, prior_mtd_households]
   }
 
   measure: current_mtd_hours {
     type: sum
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}.hhHours;;
     value_format: "#,##0"
     filters: {field: date_date value: "this month"}
     drill_fields: [date_date, current_mtd_hours]
@@ -202,7 +202,7 @@ view: channel_daily_engmnt {
 
   measure: prior_mtd_hours {
     type: sum
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}.hhHours;;
     filters: {field: is_prior_month_mtd value: "yes"}
     value_format: "#,##0"
     drill_fields: [date_date, prior_mtd_hours]
@@ -210,7 +210,7 @@ view: channel_daily_engmnt {
 
   measure: prior_mtd_hours_average {
     type: average
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}."hhHours;;
     filters: {field: is_prior_month_mtd value: "yes"}
     value_format: "#,##0"
     drill_fields: [date_date, prior_mtd_hours_average]
@@ -218,7 +218,7 @@ view: channel_daily_engmnt {
 
   measure: current_mtd_hours_average {
     type: average
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}.hhHours;;
     filters: {field: date_date value: "this month"}
     value_format: "#,##0"
     drill_fields: [date_date, current_mtd_hours_average]
@@ -226,7 +226,7 @@ view: channel_daily_engmnt {
 
   measure: prior_ytd_households {
     type:  sum
-    sql:  ${TABLE}."hhCount";;
+    sql:  ${TABLE}.hhCount;;
     filters: {field: is_prior_year_ytd value: "yes"}
     filters: {field: until_this_day value: "yes"}
     drill_fields: [date_month, total_hours]
@@ -234,7 +234,7 @@ view: channel_daily_engmnt {
 
   measure: prior_ytd_hours {
     type:  sum
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}.hhHours;;
     value_format: "#,##0"
     filters: {field: is_prior_year_ytd value: "yes"}
     filters: {field: until_this_day value: "yes"}
@@ -243,14 +243,14 @@ view: channel_daily_engmnt {
 
   measure: current_ytd_households {
     type: sum
-    sql:  ${TABLE}."hhCount";;
+    sql:  ${TABLE}.hhCount;;
     filters: {field: date_date value: "this year"}
     drill_fields: [date_month, current_ytd_households]
   }
 
   measure: current_ytd_hours {
     type: sum
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}.hhHours;;
     value_format: "#,##0"
     filters: {field: date_date value: "this year"}
     drill_fields: [date_month, current_ytd_hours]
@@ -258,7 +258,7 @@ view: channel_daily_engmnt {
 
   measure: two_weeks_ago_hours {
     type:  sum
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}.hhHours;;
     value_format: "#,##0"
     filters: {field: is_two_weeks_ago value: "yes"}
     drill_fields: [date_date, two_weeks_ago_hours]
@@ -266,7 +266,7 @@ view: channel_daily_engmnt {
 
   measure: last_week_hours {
     type:  sum
-    sql:  ${TABLE}."hhHours";;
+    sql:  ${TABLE}.hhHours;;
     value_format: "#,##0"
     filters: {field: is_last_week value: "yes"}
     drill_fields: [date_date, last_week_hours]
@@ -275,14 +275,14 @@ view: channel_daily_engmnt {
 
   measure: two_weeks_ago_households {
     type:  sum
-    sql:  ${TABLE}."hhCount";;
+    sql:  ${TABLE}.hhCount;;
     filters: {field: is_two_weeks_ago value: "yes"}
     drill_fields: [date_date, two_weeks_ago_households]
   }
 
   measure: last_week_households {
     type:  sum
-    sql:  ${TABLE}."hhCount";;
+    sql:  ${TABLE}.hhCount;;
     filters: {field: is_last_week value: "yes"}
     value_format: "0"
     drill_fields: [date_date, last_week_hours]
@@ -293,7 +293,7 @@ view: channel_daily_engmnt {
   }
 
   dimension: test_hours {
-    sql: ${TABLE}."hhHours" ;;
+    sql: ${TABLE}.hhHours ;;
     html:
     {% if prior_ytd_hours > current_ytd_hours %}
       <p style="color: green; background-color: green; font-size:100%; text-align:center">{{ rendered_value }}</p>
