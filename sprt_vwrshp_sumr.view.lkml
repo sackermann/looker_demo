@@ -125,4 +125,20 @@ view: sprt_vwrshp_sumr {
     type: count
     drill_fields: [channel_name]
   }
+
+  measure: households_sum {
+    type: sum
+    sql:  ${TABLE}."NUM_HHS";;
+  }
+
+  measure: hours_sum {
+    type: sum
+    sql:  ${TABLE}."VIEW_DUR_HRS";;
+  }
+
+  measure:  never_cluster_hrs{
+    type: sum
+    sql: ${TABLE}."VIEW_DUR_HRS" WHERE ${TABLE}."CLUSTER" = 'Never';;
+
+  }
 }
