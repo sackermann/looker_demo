@@ -3,7 +3,7 @@ view: channel_daily_engmnt {
 
   dimension: channel_name {
     type: string
-    sql: ${TABLE}."channel_name" ;;
+    sql: ${TABLE}.channel_name ;;
   }
 
   dimension: channelgenre {
