@@ -171,4 +171,39 @@ view: sprt_vwrshp_sumr {
     value_format: "#,##0"
   }
 
+  measure:  never_cluster_households{
+    type: sum
+    sql: ${TABLE}."NUM_HHS";;
+    filters:{ field: cluster value: "Never"}
+    value_format: "#,##0"
+  }
+
+  measure:  low_cluster_households{
+    type: sum
+    sql: ${TABLE}."NUM_HHS";;
+    filters:{ field: cluster value: "Low"}
+    value_format: "#,##0"
+  }
+
+  measure:  medium_cluster_households{
+    type: sum
+    sql: ${TABLE}."NUM_HHS";;
+    filters:{ field: cluster value: "Medium"}
+    value_format: "#,##0"
+  }
+
+  measure:  high_cluster_households{
+    type: sum
+    sql: ${TABLE}."NUM_HHS";;
+    filters:{ field: cluster value: "High"}
+    value_format: "#,##0"
+  }
+
+  measure:  very_high_cluster_households{
+    type: sum
+    sql: ${TABLE}."NUM_HHS";;
+    filters:{ field: cluster value: "Very High"}
+    value_format: "#,##0"
+  }
+
 }
