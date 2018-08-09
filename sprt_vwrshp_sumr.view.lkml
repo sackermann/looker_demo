@@ -16,6 +16,21 @@ view: sprt_vwrshp_sumr {
     sql: ${TABLE}."COVERAGE_AREA" ;;
   }
 
+  dimension_group: date_dt {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}."DATE_DT" ;;
+  }
+
   dimension: home_zone_flag {
     type: string
     sql: ${TABLE}."HOME_ZONE_FLAG" ;;
@@ -87,7 +102,7 @@ view: sprt_vwrshp_sumr {
   }
 
   dimension: unique_games_scheduled {
-    type: number
+    type: string
     sql: ${TABLE}."UNIQUE_GAMES_SCHEDULED" ;;
   }
 
@@ -109,17 +124,5 @@ view: sprt_vwrshp_sumr {
   measure: count {
     type: count
     drill_fields: [channel_name]
-  }
-
-  measure: households {
-    type: sum
-    sql:  ${TABLE}."NUM_HHS";;
-    value_format: "#,##0"
-  }
-
-  measure: hours {
-    type: sum
-    sql:  ${TABLE}."VIEW_DUR_HRS";;
-    value_format: "#,##0"
   }
 }
