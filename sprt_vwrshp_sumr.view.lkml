@@ -140,6 +140,35 @@ view: sprt_vwrshp_sumr {
     type: sum
     sql: ${TABLE}."VIEW_DUR_HRS";;
     filters:{ field: cluster value: "Never"}
+    value_format: "#,##0"
+  }
+
+  measure:  low_cluster_hrs{
+    type: sum
+    sql: ${TABLE}."VIEW_DUR_HRS";;
+    filters:{ field: cluster value: "Low"}
+    value_format: "#,##0"
+  }
+
+  measure:  medium_cluster_hrs{
+    type: sum
+    sql: ${TABLE}."VIEW_DUR_HRS";;
+    filters:{ field: cluster value: "Medium"}
+    value_format: "#,##0"
+  }
+
+  measure:  high_cluster_hrs{
+    type: sum
+    sql: ${TABLE}."VIEW_DUR_HRS";;
+    filters:{ field: cluster value: "High"}
+    value_format: "#,##0"
+  }
+
+  measure:  very_high_cluster_hrs{
+    type: sum
+    sql: ${TABLE}."VIEW_DUR_HRS";;
+    filters:{ field: cluster value: "Very High"}
+    value_format: "#,##0"
   }
 
 }
