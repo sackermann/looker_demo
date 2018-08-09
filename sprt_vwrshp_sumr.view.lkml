@@ -129,11 +129,13 @@ view: sprt_vwrshp_sumr {
   measure: households_sum {
     type: sum
     sql:  ${TABLE}."NUM_HHS";;
+    value_format: "#,##0"
   }
 
   measure: hours_sum {
     type: sum
     sql:  ${TABLE}."VIEW_DUR_HRS";;
+    value_format: "#,##0"
   }
 
   measure:  never_cluster_hrs{
