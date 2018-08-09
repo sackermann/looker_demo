@@ -138,7 +138,8 @@ view: sprt_vwrshp_sumr {
 
   measure:  never_cluster_hrs{
     type: sum
-    sql: ${TABLE}."VIEW_DUR_HRS" WHERE ${TABLE}."CLUSTER" = 'Never';;
-
+    sql: ${TABLE}."VIEW_DUR_HRS";;
+    filters:{ field: cluster value: "Never"}
   }
+
 }
