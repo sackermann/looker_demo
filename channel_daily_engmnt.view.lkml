@@ -304,4 +304,44 @@ view: channel_daily_engmnt {
     {% endif %}
 ;;
   }
+
+  parameter: date_filter {
+    type: date_time
+    allowed_value: {
+      label: "Yesterday"
+      value: "Yesterday"
+    }
+    allowed_value: {
+      label: "Week to date"
+      value: "This week"
+    }
+    allowed_value: {
+      label: "Last week"
+      value: "Last Week"
+    }
+    allowed_value: {
+      label: "Month to date"
+      value: "This Month"
+    }
+    allowed_value: {
+      label: "Last month"
+      value: "Last Month"
+    }
+    allowed_value: {
+      label: "Quarter to date"
+      value: "This Quarter"
+    }
+    allowed_value: {
+      label: "Last quarter"
+      value: "Last Quarter"
+    }
+    allowed_value: {
+      label: "Year to date"
+      value: "This Year"
+    }
+    allowed_value: {
+      label: "Full year LY"
+      value: "Last Year"
+    }
+  }
 }
