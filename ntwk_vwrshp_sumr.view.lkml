@@ -491,4 +491,9 @@ view: ntwk_vwrshp_sumr {
     drill_fields: [date_date, last_week_type1_cat4]
   }
 
+  measure: selection_type1_cat1 {
+    type:  number
+    sql:  ${TABLE}."TYPE1_CAT1_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
 }
