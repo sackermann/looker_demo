@@ -496,4 +496,22 @@ view: ntwk_vwrshp_sumr {
     sql:  ${TABLE}."TYPE1_CAT1_TOT_ADJ_VW_DUR_IN_MIN";;
     value_format: "#,##0"
   }
+
+  measure: selection_type1_cat2 {
+    type:  number
+    sql:  ${TABLE}."TYPE1_CAT2_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
+
+  measure: selection_type1_cat3 {
+    type:  number
+    sql:  ${TABLE}."TYPE1_CAT3_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
+
+  measure: selection_type1_cat4 {
+    type:  number
+    sql:  ${TABLE}."TYPE1_CAT4_TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
 }
