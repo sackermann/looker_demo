@@ -421,4 +421,16 @@ view: ntwk_titl_vwrshp_sumr {
     value_format: "#,##0"
     drill_fields: [date_date, last_week_visitors]
   }
+
+  measure: adj_vistor_number {
+    type:  number
+    sql:  ${TABLE}."TOT_ADJ_VSTR_CNT";;
+    value_format: "#,##0"
+  }
+
+  measure: adj_min_number {
+    type:  number
+    sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
+    value_format: "#,##0"
+  }
 }
