@@ -18,7 +18,14 @@ explore: channel_hierarchy {hidden: yes}
 explore: ntwk_vwrshp_sumr{hidden: yes}
 explore: channel_daily_trunc{}
 explore: temp_dtv_sumr{}
-explore: sprt_vwrshp_sumr{}
+explore: sprt_vwrshp_sumr{
+  always_filter: {
+    filters: {
+      field:  league
+      value: "NBA"
+    }
+  }
+}
 
 #### DIM TABLES ####
 explore: vdo_chnl_dim {hidden: yes}
