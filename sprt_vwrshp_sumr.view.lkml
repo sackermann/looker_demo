@@ -214,25 +214,25 @@ view: sprt_vwrshp_sumr {
       label: "NBA"
       value: "NBA"
     }
-    allowed_value: {
-      label: "NFL"
-      value: "NFL"
-    }
-    allowed_value: {
-      label: "NHL"
-      value: "NFL"
-    }
-    allowed_value: {
-      label: "MLB"
-      value: "MLB"
-    }
+    #allowed_value: {
+    #  label: "NFL"
+    #  value: "NFL"
+    #}
+    #allowed_value: {
+    #  label: "NHL"
+    #  value: "NFL"
+    #}
+    #allowed_value: {
+    #  label: "MLB"
+    #  value: "MLB"
+    #}
   }
 
   dimension: league_type {
     label_from_parameter: league_selector
     sql:
     CASE
-      WHEN {% parameter league_selector %} = 'NBA' THEN ${league}
+      WHEN {% parameter league_selector %} = 'NBA' THEN ${league} = 'NBA'
       WHEN {% parameter league_selector %} = 'NFL' THEN ${league}
       WHEN {% parameter league_selector %} = 'MLB' THEN ${league}
       WHEN {% parameter league_selector %} = 'NHL' THEN ${league}
