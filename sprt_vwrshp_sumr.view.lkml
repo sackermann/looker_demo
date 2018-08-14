@@ -36,10 +36,10 @@ view: sprt_vwrshp_sumr {
     sql: ${TABLE}."HOME_ZONE_FLAG" ;;
   }
 
-  dimension: league {
-    type: string
-    sql: ${TABLE}."LEAGUE" ;;
-  }
+  #dimension: league {
+  #  type: string
+  #  sql: ${TABLE}."LEAGUE" ;;
+  #}
 
   dimension: league_partition {
     type: string
@@ -216,7 +216,7 @@ view: sprt_vwrshp_sumr {
     allowed_value: { value: "MLB" }
   }
 
-  dimension: league_type {
+  dimension: league {
     label_from_parameter: league_selector
     sql:
     CASE
