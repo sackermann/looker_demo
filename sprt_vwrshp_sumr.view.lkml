@@ -218,19 +218,19 @@ view: sprt_vwrshp_sumr {
 
   dimension: NBA {
     type: string
-    sql: (SELECT ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'NBA' );;
+    sql: ${TABLE}."LEAGUE" = 'NBA';;
   }
   dimension: NFL {
     type: string
-    sql: (SELECT ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'NFL' );;
+    sql: ${TABLE}."LEAGUE" = 'NFL';;
   }
   dimension: MLB {
     type: string
-    sql: (SELECT ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'MLB' );;
+    sql: ${TABLE}."LEAGUE" = 'MLB';;
   }
   dimension: NHL {
     type: string
-    sql: (SELECT ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'NHL' );;
+    sql: ${TABLE}."LEAGUE" = 'NHL';;
   }
 
   dimension: league_type {
