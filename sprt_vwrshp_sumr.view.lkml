@@ -207,4 +207,24 @@ view: sprt_vwrshp_sumr {
     filters:{ field: cluster value: "Very High"}
     value_format: "#,##0"
   }
+
+  parameter: league_selector {
+    type: string
+    allowed_value: {
+      label: "NBA"
+      value: "NBA"
+    }
+    allowed_value: {
+      label: "NFL"
+      value: "NFL"
+    }
+    allowed_value: {
+      label: "NHL"
+      value: "NFL"
+    }
+    allowed_value: {
+      label: "MLB"
+      value: "MLB"
+    }
+  }
 }
