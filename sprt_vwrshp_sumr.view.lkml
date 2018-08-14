@@ -36,10 +36,10 @@ view: sprt_vwrshp_sumr {
     sql: ${TABLE}."HOME_ZONE_FLAG" ;;
   }
 
-  #dimension: league {
-  #  type: string
-  #  sql: ${TABLE}."LEAGUE" ;;
-  #}
+  dimension: league {
+    type: string
+    sql: ${TABLE}."LEAGUE" ;;
+  }
 
   dimension: league_partition {
     type: string
@@ -216,14 +216,19 @@ view: sprt_vwrshp_sumr {
     allowed_value: { value: "MLB" }
   }
 
-  dimension: league {
+  dimension: NBA {
+    type: string
+    sql: (SELECT ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'NBA' );;
+  }
+
+  dimension: league_type {
     label_from_parameter: league_selector
     sql:
     CASE
-      WHEN {% parameter league_selector %} = 'NBA' THEN ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'NBA'
-      WHEN {% parameter league_selector %} = 'NFL' THEN ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'NFL'
-      WHEN {% parameter league_selector %} = 'MLB' THEN ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'MLB'
-      WHEN {% parameter league_selector %} = 'NHL' THEN ${TABLE}."LEAGUE" WHERE ${TABLE}."LEAGUE" = 'NHL'
+      WHEN {% parameter league_selector %} = 'NBA' THEN ${NBA}
+      WHEN {% parameter league_selector %} = 'NFL' THEN
+      WHEN {% parameter league_selector %} = 'MLB' THEN
+      WHEN {% parameter league_selector %} = 'NHL' THEN
     END;;
   }
 }
