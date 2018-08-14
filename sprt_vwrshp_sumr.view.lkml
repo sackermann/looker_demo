@@ -216,31 +216,15 @@ view: sprt_vwrshp_sumr {
     allowed_value: { value: "MLB" }
   }
 
-  dimension: NBA {
-    type: string
-    sql: ${TABLE}."LEAGUE" = 'NBA';;
-  }
-  dimension: NFL {
-    type: string
-    sql: ${TABLE}."LEAGUE" = 'NFL';;
-  }
-  dimension: MLB {
-    type: string
-    sql: ${TABLE}."LEAGUE" = 'MLB';;
-  }
-  dimension: NHL {
-    type: string
-    sql: ${TABLE}."LEAGUE" = 'NHL';;
-  }
 
   dimension: league_type {
     label_from_parameter: league_selector
     sql:
     CASE
-      WHEN {% parameter league_selector %} = 'NBA' THEN ${NBA}
-      WHEN {% parameter league_selector %} = 'NFL' THEN ${NFL}
-      WHEN {% parameter league_selector %} = 'MLB' THEN ${MLB}
-      WHEN {% parameter league_selector %} = 'NHL' THEN ${NHL}
+      WHEN {% parameter league_selector %} = 'NBA' THEN ${league}
+      WHEN {% parameter league_selector %} = 'NFL' THEN ${league}
+      WHEN {% parameter league_selector %} = 'MLB' THEN ${league}
+      WHEN {% parameter league_selector %} = 'NHL' THEN ${league}
     END;;
   }
 }
