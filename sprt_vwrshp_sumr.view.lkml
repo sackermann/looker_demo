@@ -233,10 +233,10 @@ view: sprt_vwrshp_sumr {
     type: string
     sql:
     CASE
-      WHEN {% parameter league_selector %} = 'NBA' THEN ${league}
-      WHEN {% parameter league_selector %} = 'NFL' THEN ${league}
-      WHEN {% parameter league_selector %} = 'MLB' THEN ${league}
-      WHEN {% parameter league_selector %} = 'NHL' THEN ${league}
+      WHEN {% parameter league_selector %} = 'NBA' THEN ${team}
+      WHEN {% parameter league_selector %} = 'NFL' THEN ${team}
+      WHEN {% parameter league_selector %} = 'MLB' THEN ${team}
+      WHEN {% parameter league_selector %} = 'NHL' THEN ${team}
       ELSE
         NULL
     END;;
