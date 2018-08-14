@@ -208,4 +208,9 @@ view: sprt_vwrshp_sumr {
     value_format: "#,##0"
   }
 
+  dimension: NBA {
+    sql:  ${TABLE}."LEAGUE" = 'NBA' ;;
+    group_label: "NBA"
+  }
+
 }
