@@ -232,12 +232,10 @@ view: sprt_vwrshp_sumr {
     label_from_parameter: league_selector
     sql:
     CASE
-      WHEN {% parameter league_selector %} = 'NBA' THEN ${TABLE}."LEAGUE" = 'NBA'
-      WHEN {% parameter league_selector %} = 'NFL' THEN ${TABLE}."LEAGUE" = 'NFL'
-      WHEN {% parameter league_selector %} = 'MLB' THEN ${TABLE}."LEAGUE" = 'MLB'
-      WHEN {% parameter league_selector %} = 'NHL' THEN ${TABLE}."LEAGUE" = 'NHL'
-      ELSE
-        NULL
+      WHEN ${TABLE}."LEAGUE" = 'NBA' THEN {% parameter league_selector %} = 'NBA'
+      WHEN {% parameter league_selector %} = 'NFL' THEN
+      WHEN {% parameter league_selector %} = 'MLB' THEN
+      WHEN {% parameter league_selector %} = 'NHL' THEN
     END;;
   }
 }
