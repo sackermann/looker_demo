@@ -207,10 +207,4 @@ view: sprt_vwrshp_sumr {
     filters:{ field: cluster value: "Very High"}
     value_format: "#,##0"
   }
-
-  dimension: NBA {
-    sql:  ${TABLE}."LEAGUE" = 'NBA' ;;
-    group_label: "NBA"
-  }
-
 }
