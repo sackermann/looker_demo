@@ -230,9 +230,10 @@ view: sprt_vwrshp_sumr {
 
   dimension: league_type {
     label_from_parameter: league_selector
+    type: string
     sql:
     CASE
-      WHEN {% parameter league_selector %} = 'NBA' THEN ${league} = 'NBA'
+      WHEN {% parameter league_selector %} = 'NBA' THEN ${league}
       WHEN {% parameter league_selector %} = 'NFL' THEN ${league}
       WHEN {% parameter league_selector %} = 'MLB' THEN ${league}
       WHEN {% parameter league_selector %} = 'NHL' THEN ${league}
