@@ -316,6 +316,7 @@ view: channel_daily_engmnt {
   dimension_group: created {
     type: time
     timeframes: [date, week, month, quarter, year]
+    sql: ${TABLE}."DATE" ;;
   }
 
   parameter: date_granularity {
