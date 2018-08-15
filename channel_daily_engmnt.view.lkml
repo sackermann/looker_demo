@@ -292,19 +292,6 @@ view: channel_daily_engmnt {
     fields: [date_date, channelgenre, platform, playbacktype, total_households, total_hours, engagement_level]
   }
 
-  dimension: test_hours {
-    sql: ${TABLE}.hhHours ;;
-    html:
-    {% if prior_ytd_hours > current_ytd_hours %}
-      <p style="color: green; background-color: green; font-size:100%; text-align:center">{{ rendered_value }}</p>
-    {% elsif prior_ytd_hours == current_ytd_hours %}
-      <p style="color: red; background-color: red; font-size:100%; text-align:center">{{ rendered_value }}</p>
-    {% else %}
-      <p style="color: black; background-color: orange; font-size:100%; text-align:center">{{ rendered_value }}</p>
-    {% endif %}
-;;
-  }
-
   parameter: date_filter {
     type: date_time
     allowed_value: {
@@ -343,5 +330,22 @@ view: channel_daily_engmnt {
       label: "Full year LY"
       value: "Last Year"
     }
+  }
+
+  dimension: date_test {
+    label_from_parameter: date_filter
+    sql:
+       CASE
+         WHEN {% parameter date_filter %} = 'Day' THEN
+           ${date_date}::VARCHAR
+         WHEN {% parameter date_filter %} = 'Month' THEN
+           ${date_month}::VARCHAR
+         WHEN {% parameter date_filter %} = 'Quarter' THEN
+           ${date_quarter}::VARCHAR
+         WHEN {% parameter date_filter %} = 'Year' THEN
+           ${date_year}::VARCHAR
+         ELSE
+           NULL
+       END ;;
   }
 }
