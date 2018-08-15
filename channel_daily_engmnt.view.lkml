@@ -292,54 +292,23 @@ view: channel_daily_engmnt {
     fields: [date_date, channelgenre, platform, playbacktype, total_households, total_hours, engagement_level]
   }
 
-  #parameter: date_filter {
-  #  type: string
-  #  allowed_value: { value: "Yesterday" }
-  #  allowed_value: { value: "Month" }
-  #  allowed_value: { value: "Quarter" }
-  #  allowed_value: { value: "Year" }
-  #}
-
-  #dimension: date_test {
-  #  label_from_parameter: date_filter
-  #  sql:
-  #     CASE
-  #       WHEN {% parameter date_filter %} = 'Day' THEN ${date_date}
-  #       WHEN {% parameter date_filter %} = 'Month' THEN ${date_month}
-  #       WHEN {% parameter date_filter %} = 'Quarter' THEN ${date_quarter}
-  #       WHEN {% parameter date_filter %} = 'Year' THEN ${date_year}
-  #       ELSE
-  #         NULL
-  #     END ;;
-  #}
-
-  dimension_group: created {
-    type: time
-    timeframes: [date, week, month, quarter, year]
-    sql: ${TABLE}."DATE" ;;
-  }
-
-  parameter: date_granularity {
+  parameter: date_filter {
     type: string
-    allowed_value: { value: "Day" }
+    allowed_value: { value: "Yesterday" }
     allowed_value: { value: "Month" }
     allowed_value: { value: "Quarter" }
     allowed_value: { value: "Year" }
   }
 
-  dimension: date {
-    label_from_parameter: date_granularity
+  dimension: date_test {
+    label_from_parameter: date_filter
     sql:
        CASE
-         WHEN {% parameter date_granularity %} = 'Day' THEN
-           ${created_date}::VARCHAR
-         WHEN {% parameter date_granularity %} = 'Month' THEN
-           ${created_month}::VARCHAR
-         WHEN {% parameter date_granularity %} = 'Quarter' THEN
-           ${created_quarter}::VARCHAR
-         WHEN {% parameter date_granularity %} = 'Year' THEN
-           ${created_year}::VARCHAR
-         ELSE
+         WHEN {% parameter date_filter %} = 'Day' THEN ${date_date}
+         WHEN {% parameter date_filter %} = 'Month' THEN ${date_month}
+         WHEN {% parameter date_filter %} = 'Quarter' THEN ${date_quarter}
+         WHEN {% parameter date_filter %} = 'Year' THEN ${date_year}
+       ELSE
            NULL
        END ;;
   }
