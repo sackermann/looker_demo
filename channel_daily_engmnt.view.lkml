@@ -294,20 +294,20 @@ view: channel_daily_engmnt {
 
   parameter: date_filter {
     type: string
-    allowed_value: { value: "Yesterday" }
-    allowed_value: { value: "Month" }
-    allowed_value: { value: "Quarter" }
-    allowed_value: { value: "Year" }
+    allowed_value: { value: "1 day ago" }
+    allowed_value: { value: "this month" }
+    allowed_value: { value: "this quarter" }
+    allowed_value: { value: "this year" }
   }
 
   dimension: date_test {
     label_from_parameter: date_filter
     sql:
        CASE
-         WHEN {% parameter date_filter %} = 'Day' THEN ${date_date}::VARCHAR
-         WHEN {% parameter date_filter %} = 'Month' THEN ${date_month}::VARCHAR
-         WHEN {% parameter date_filter %} = 'Quarter' THEN ${date_quarter}::VARCHAR
-         WHEN {% parameter date_filter %} = 'Year' THEN ${date_year}::VARCHAR
+         WHEN {% parameter date_filter %} = '1 day ago' THEN ${date_date}::VARCHAR
+         WHEN {% parameter date_filter %} = 'this month' THEN ${date_month}::VARCHAR
+         WHEN {% parameter date_filter %} = 'this quarter' THEN ${date_quarter}::VARCHAR
+         WHEN {% parameter date_filter %} = 'this year' THEN ${date_year}::VARCHAR
        ELSE
            NULL
        END ;;
