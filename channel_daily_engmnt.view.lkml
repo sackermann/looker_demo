@@ -293,11 +293,11 @@ view: channel_daily_engmnt {
   }
 
   parameter: date_filter {
-    type: date_time
+    type: string
     allowed_value: { value: "Yesterday" }
     allowed_value: { value: "Month" }
     allowed_value: { value: "Quarter" }
-    allowed_value: { value: "This Year" }
+    allowed_value: { value: "Year" }
   }
 
   dimension: date_test {
