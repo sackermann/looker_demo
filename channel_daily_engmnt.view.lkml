@@ -304,14 +304,10 @@ view: channel_daily_engmnt {
     label_from_parameter: date_filter
     sql:
        CASE
-         WHEN {% parameter date_filter %} = 'Day' THEN
-           ${date_date}::VARCHAR
-         WHEN {% parameter date_filter %} = 'Month' THEN
-           ${date_month}::VARCHAR
-         WHEN {% parameter date_filter %} = 'Quarter' THEN
-           ${date_quarter}::VARCHAR
-         WHEN {% parameter date_filter %} = 'Year' THEN
-           ${date_year}::VARCHAR
+         WHEN {% parameter date_filter %} = 'Day' THEN ${date_date}
+         WHEN {% parameter date_filter %} = 'Month' THEN ${date_month}
+         WHEN {% parameter date_filter %} = 'Quarter' THEN ${date_quarter}
+         WHEN {% parameter date_filter %} = 'Year' THEN ${date_year}
          ELSE
            NULL
        END ;;
