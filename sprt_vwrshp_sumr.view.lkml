@@ -1,5 +1,5 @@
 view: sprt_vwrshp_sumr {
-  sql_table_name: PUBLIC.SPRT_VWRSHP_SUMR ;;
+  sql_table_name: PUBLIC.SPRT_VWRSHP_SUMR;;
 
   dimension: channel_name {
     type: string
@@ -227,7 +227,7 @@ view: sprt_vwrshp_sumr {
     END;;
   }
 
-  parameter: PUBLIC.SPRT_VWRSHP_SUMR {
+  parameter: tablename {
     type: unquoted
     allowed_value: {label: "NBA" value: "NBA"}
     allowed_value: {label: "NFL" value: "NFL"}
