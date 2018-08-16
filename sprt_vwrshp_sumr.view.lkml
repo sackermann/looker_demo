@@ -220,15 +220,18 @@ view: sprt_vwrshp_sumr {
     label_from_parameter: league_selector
     sql:
     CASE
-      WHEN ${TABLE}."LEAGUE" = 'NBA' THEN {% parameter league_selector %} = 'NBA'
+      WHEN {% parameter league_selector %} = 'NBA' THEN ${league}::VARCHAR
       WHEN {% parameter league_selector %} = 'NFL' THEN ${league}::VARCHAR
       WHEN {% parameter league_selector %} = 'MLB' THEN ${league}::VARCHAR
       WHEN {% parameter league_selector %} = 'NHL' THEN ${league}::VARCHAR
     END;;
   }
 
-  dimension: nba_test {
-    type: string
-    sql: ${league}."NBA" ;;
+  parameter: PUBLIC.SPRT_VWRSHP_SUMR {
+    type: unquoted
+    allowed_value: {label: "NBA" value: "NBA"}
+    allowed_value: {label: "NFL" value: "NFL"}
+    allowed_value: {label: "MLB" value: "MLB"}
+    allowed_value: {label: "NHL" value: "NHL"}
   }
 }
