@@ -229,7 +229,7 @@ view: sprt_vwrshp_sumr {
 
   filter: nba_filter {
     type: string
-    sql: ${TABLE}."LEAUGE" = "NBA";;
+    sql: ${TABLE}."LEAGUE" = "NBA";;
     default_value: "NBA"
   }
 }
