@@ -226,12 +226,4 @@ view: sprt_vwrshp_sumr {
       WHEN {% parameter league_selector %} = 'NHL' THEN ${league}::VARCHAR
     END;;
   }
-
-  parameter: tablename {
-    type: unquoted
-    allowed_value: {label: "NBA" value: "NBA"}
-    allowed_value: {label: "NFL" value: "NFL"}
-    allowed_value: {label: "MLB" value: "MLB"}
-    allowed_value: {label: "NHL" value: "NHL"}
-  }
 }
