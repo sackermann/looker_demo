@@ -226,4 +226,9 @@ view: sprt_vwrshp_sumr {
       WHEN {% parameter league_selector %} = 'NHL' THEN ${league}::VARCHAR
     END;;
   }
+
+  dimension: nba_test {
+    type: string
+    sql: SELECT('NBA' FROM ${TABLE}."LEAGUE");;
+  }
 }
