@@ -229,6 +229,6 @@ view: sprt_vwrshp_sumr {
 
   dimension: nba_test {
     type: string
-    sql: ${TABLE}."NBA" ;;
+    sql: ${league}."NBA" ;;
   }
 }
