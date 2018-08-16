@@ -226,10 +226,4 @@ view: sprt_vwrshp_sumr {
       WHEN {% parameter league_selector %} = 'NHL' THEN ${league}::VARCHAR
     END;;
   }
-
-  filter: nba_filter {
-    type: string
-    sql: ${TABLE}."LEAGUE"::VARCHAR;;
-    default_value: "NBA"
-  }
 }
