@@ -208,26 +208,26 @@ view: sprt_vwrshp_sumr {
     value_format: "#,##0"
   }
 
-  parameter: league_selector {
-    type: unquoted
-    allowed_value: { value: "NBA" }
-    allowed_value: { value: "NFL" }
-    allowed_value: { value: "MLB" }
-    allowed_value: { value: "NHL" }
+  dimension: league_select {
+    case: {
+      when: {
+        sql: ${TABLE}."LEAGUE" = 'NBA' ;;
+        label: "NBA"
+      }
+      when: {
+        sql: ${TABLE}."LEAGUE" = 'NFL' ;;
+        label: "NFL"
+      }
+      when: {
+        sql: ${TABLE}."LEAGUE" = 'MLB' ;;
+        label: "MLB"
+      }
+      when: {
+        sql: ${TABLE}."LEAGUE" = 'NHL' ;;
+        label: "NHL"
+      }
+      else: "No League"
+    }
   }
 
-  dimension: league_type {
-    sql:
-    {% if league_selector._parameter_value == "'NBA'" %}
-    ${TABLE}."LEAGUE" = 'NBA'
-    {% elsif league_selector._parameter_value == "'NFL'" %}
-    ${TABLE}."LEAGUE" = 'NFL'
-    {% elsif league_selector._parameter_value == "'MLB'" %}
-    ${TABLE}."LEAGUE" = 'MLB'
-    {% elsif league_selector._parameter_value == "'NHL'" %}
-    ${TABLE}."LEAGUE" = 'NHL'
-    {% else %}
-    ${TABLE}."LEAGUE"
-    {% endif %};;
-  }
 }
