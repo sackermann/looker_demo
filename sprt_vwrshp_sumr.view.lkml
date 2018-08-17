@@ -230,4 +230,11 @@ view: sprt_vwrshp_sumr {
     }
   }
 
+  filter: league_filter {
+    suggest_explore: sprt_vwrshp_sumr
+    suggest_dimension: league
+    sql: {% condition league %} ${league} {% endcondition %}
+    ;;
+
+  }
 }
