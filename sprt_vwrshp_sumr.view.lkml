@@ -231,6 +231,7 @@ view: sprt_vwrshp_sumr {
 
   filter: MLB {
     type: string
+    label: "MLB"
     sql: ${TABLE}."LEAGUE" = 'MLB' ;;
     default_value: "MLB"
   }
