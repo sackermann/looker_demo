@@ -230,48 +230,8 @@ view: sprt_vwrshp_sumr {
     }
   }
 
-  dimension: NBA {
+  filter: leagues{
     type: string
-    sql: ${TABLE}."LEAGUE" = 'NBA' ;;
-    hidden: yes
-  }
-  dimension: NFL {
-    type: string
-    sql: ${TABLE}."LEAGUE" = 'NFL' ;;
-    hidden: yes
-  }
-  dimension: MLB {
-    type: string
-    sql: ${TABLE}."LEAGUE" = 'MLB' ;;
-    hidden: yes
-  }
-  dimension: NHL {
-    type: string
-    sql: ${TABLE}."LEAGUE" = 'NHL' ;;
-    hidden: yes
-  }
-
-  parameter: legue_selector {
-    type: unquoted
-    allowed_value: { label: "NBA" value: "NBA" }
-    allowed_value: { label: "NFL" value: "NFL" }
-    allowed_value: { label: "MLB" value: "MLB" }
-    allowed_value: { label: "NHL" value: "NHL" }
-  }
-
-  dimension: league_type {
-    type: string
-    sql:
-    {% if legue_selector._parameter_value == 'NBA' %}
-    ${NBA}
-    {% elsif legue_selector._parameter_value == 'NFL' %}
-    ${NFL}
-    {% elsif legue_selector._parameter_value == 'MLB' %}
-    ${MLB}
-    {% elsif legue_selector._parameter_value == 'NHL' %}
-    ${NHL}
-    {% else %}
-    "No Leauge"
-    {% endif %};;
+    sql: ${league_select} ;;
   }
 }
