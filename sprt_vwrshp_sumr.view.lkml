@@ -212,18 +212,22 @@ view: sprt_vwrshp_sumr {
     type: string
     allowed_value: { value: "NBA" }
     allowed_value: { value: "NFL" }
-    allowed_value: { value: "NFL" }
     allowed_value: { value: "MLB" }
+    allowed_value: { value: "NHL" }
   }
 
   dimension: league_type {
-    label_from_parameter: league_selector
     sql:
-    CASE
-      WHEN {% parameter league_selector %} = 'NBA' THEN ${league}::VARCHAR
-      WHEN {% parameter league_selector %} = 'NFL' THEN ${league}::VARCHAR
-      WHEN {% parameter league_selector %} = 'MLB' THEN ${league}::VARCHAR
-      WHEN {% parameter league_selector %} = 'NHL' THEN ${league}::VARCHAR
-    END;;
+    {% if league_selector._parameter_value == 'NBA' %}
+    ${league}
+    {% elsif league_selector._parameter_value == 'NFL' %}
+    ${league}
+    {% elsif league_selector._parameter_value == 'MLB' %}
+    ${league}
+    {% elsif league_selector._parameter_value == 'NHL' %}
+    ${league}
+    {% else %}
+    ${league}
+    {% endif %};;
   }
 }
