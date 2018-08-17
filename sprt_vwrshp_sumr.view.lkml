@@ -209,7 +209,7 @@ view: sprt_vwrshp_sumr {
   }
 
   parameter: league_selector {
-    type: string
+    type: unquoted
     allowed_value: { value: "NBA" }
     allowed_value: { value: "NFL" }
     allowed_value: { value: "MLB" }
