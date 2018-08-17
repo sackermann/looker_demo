@@ -226,7 +226,6 @@ view: sprt_vwrshp_sumr {
         sql: ${TABLE}."LEAGUE" = 'NHL' ;;
         label: "NHL"
       }
-      else: "No League"
     }
   }
 
