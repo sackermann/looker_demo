@@ -219,15 +219,15 @@ view: sprt_vwrshp_sumr {
   dimension: league_type {
     sql:
     {% if league_selector._parameter_value == 'NBA' %}
-    ${league}
+    ${TABLE}."LEAGUE" = 'NBA'
     {% elsif league_selector._parameter_value == 'NFL' %}
-    ${league}
+    ${TABLE}."LEAGUE" = 'NFL'
     {% elsif league_selector._parameter_value == 'MLB' %}
-    ${league}
+    ${TABLE}."LEAGUE" = 'MLB'
     {% elsif league_selector._parameter_value == 'NHL' %}
-    ${league}
+    ${TABLE}."LEAGUE" = 'NHL'
     {% else %}
-    ${league}
+    ${TABLE}."LEAGUE"
     {% endif %};;
   }
 }
