@@ -19,6 +19,7 @@ explore: ntwk_vwrshp_sumr{hidden: yes}
 explore: channel_daily_trunc{}
 explore: temp_dtv_sumr{}
 explore: sprt_vwrshp_sumr{}
+explore: snowflake_parquet{}
 
 #### DIM TABLES ####
 explore: vdo_chnl_dim {hidden: yes}
