@@ -260,6 +260,7 @@ view: sprt_vwrshp_sumr {
   }
 
   dimension: league_type {
+    type: string
     sql:
     {% if legue_selector._parameter_value == 'NBA' %}
     ${NBA}
