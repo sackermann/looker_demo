@@ -208,35 +208,10 @@ view: sprt_vwrshp_sumr {
     value_format: "#,##0"
   }
 
-  filter: MLB {
+  filter: leauge_selection {
     type: string
-    label: "MLB"
-    sql: ${TABLE}."LEAGUE" = 'MLB' ;;
-    default_value: "MLB"
-    suggestions: ["MLB"]
-  }
-
-  filter: NFL {
-    type: string
-    label: "NFL"
-    sql: ${TABLE}."LEAGUE" = 'NFL' ;;
-    default_value: "NFL"
-    suggestions: ["NFL"]
-  }
-
-  filter: NBA {
-    type: string
-    label: "NBA"
-    sql: ${TABLE}."LEAGUE" = 'NBA' ;;
-    default_value: "NBA"
-    suggestions: ["NBA"]
-  }
-
-  filter: NHL {
-    type: string
-    label: "NHL"
-    sql: ${TABLE}."LEAGUE" = 'NHL' ;;
-    default_value: "NHL"
-    suggestions: ["NHL"]
+    label: "LEAGUE FILTER"
+    sql: ${TABLE}."LEAGUE" ;;
+    suggestions: ["MLB", "NFL", "NHL", "NBA"]
   }
 }
