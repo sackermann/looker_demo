@@ -229,8 +229,9 @@ view: sprt_vwrshp_sumr {
     }
   }
 
-  filter: leagues{
+  filter: MLB {
     type: string
-    sql: ${TABLE}."LEAGUE" ;;
+    sql: ${TABLE}."LEAGUE" = "MLB" ;;
+    default_value: "MLB"
   }
 }
