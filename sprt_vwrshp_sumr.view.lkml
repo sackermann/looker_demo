@@ -233,6 +233,7 @@ view: sprt_vwrshp_sumr {
     type: string
     label: "MLB"
     sql: ${TABLE}."LEAGUE" = 'MLB' ;;
-    default_value: "MLB"
+    #default_value: "MLB"
+    suggestions: ["MLB"]
   }
 }
