@@ -231,6 +231,6 @@ view: sprt_vwrshp_sumr {
 
   filter: leagues{
     type: string
-    sql: ${league_select} ;;
+    sql: ${TABLE}."LEAGUE" ;;
   }
 }
