@@ -229,8 +229,4 @@ view: sprt_vwrshp_sumr {
       else: "No League"
     }
   }
-
-  filter: league_filter {
-    suggest_dimension: league_select
-  }
 }
