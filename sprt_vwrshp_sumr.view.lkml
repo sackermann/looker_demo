@@ -232,8 +232,8 @@ view: sprt_vwrshp_sumr {
 
   filter: league_filter {
     suggest_explore: sprt_vwrshp_sumr
-    suggest_dimension: league
-    sql: {% condition league %} ${league} {% endcondition %}
+    suggest_dimension: league_select
+    sql: {% condition league_select %} ${league_select} {% endcondition %}
     ;;
 
   }
