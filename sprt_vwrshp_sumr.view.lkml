@@ -242,7 +242,7 @@ view: sprt_vwrshp_sumr {
 
   filter: nba_team_test {
     type: string
-    sql: ${TABLE}."TEAM";;
+    sql: ${TABLE}."TEAM" WHERE ${TABLE}."LEAGUE" = 'NBA';;
     label: "NBA Teams"
   }
 
