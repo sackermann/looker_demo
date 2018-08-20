@@ -250,7 +250,9 @@ view: sprt_vwrshp_sumr {
         WHEN ${TABLE}."TEAM" = 'Dallas Mavericks' THEN 'Dallas Mavericks'
         ELSE NULL
         END;;
-    group_label: "NBA Teams"
+    #group_label: "NBA Teams"
+    suggestions: ["Dallas Mavericks"]
+    default_value: "Dallas Mavericks"
   }
 
 
