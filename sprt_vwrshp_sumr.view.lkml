@@ -240,6 +240,12 @@ view: sprt_vwrshp_sumr {
     suggestions: ["NHL"]
   }
 
+  filter: nba_team_test {
+    type: string
+    sql: ${TABLE}."TEAM";;
+    label: "NBA Teams"
+  }
+
   dimension: nba_teams {
     sql: ${TABLE}."TEAM";;
     group_label: "NBA Teams"
