@@ -214,6 +214,7 @@ view: sprt_vwrshp_sumr {
     sql: ${TABLE}."LEAGUE" = 'MLB' ;;
     default_value: "MLB"
     suggestions: ["MLB"]
+    group_label: "League Filter"
   }
 
   filter: NFL {
@@ -222,6 +223,7 @@ view: sprt_vwrshp_sumr {
     sql: ${TABLE}."LEAGUE" = 'NFL' ;;
     default_value: "NFL"
     suggestions: ["NFL"]
+    group_label: "League Filter"
   }
 
   filter: NBA {
@@ -230,6 +232,7 @@ view: sprt_vwrshp_sumr {
     sql: ${TABLE}."LEAGUE" = 'NBA' ;;
     default_value: "NBA"
     suggestions: ["NBA"]
+    group_label: "League Filter"
   }
 
   filter: NHL {
@@ -238,6 +241,7 @@ view: sprt_vwrshp_sumr {
     sql: ${TABLE}."LEAGUE" = 'NHL' ;;
     default_value: "NHL"
     suggestions: ["NHL"]
+    group_label: "League Filter"
   }
 
   filter: nba_team_test {
