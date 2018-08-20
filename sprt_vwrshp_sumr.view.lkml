@@ -315,4 +315,22 @@ view: sprt_vwrshp_sumr {
     suggestions: ["Texas Rangers"]
     group_label: "MLB Team Filter"
   }
+
+  filter: home_game_filter {
+    type: string
+    label: "Home Game"
+    sql: ${TABLE}."HOME_ZONE_FLAG" = 'true' ;;
+    default_value: "true"
+    suggestions: ["true"]
+    group_label: "Home/Away"
+  }
+
+  filter: away_game_filter {
+    type: string
+    label: "Away Game"
+    sql: ${TABLE}."HOME_ZONE_FLAG" = '' ;;
+    default_value: ""
+    suggestions: [""]
+    group_label: "Home/Away"
+  }
 }
