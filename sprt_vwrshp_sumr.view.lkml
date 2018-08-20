@@ -244,11 +244,6 @@ view: sprt_vwrshp_sumr {
     group_label: "League Filter"
   }
 
-  filter: nba_team_test {
-    type: string
-    sql: ${TABLE}."TEAM" WHERE ${TABLE}."LEAGUE" = 'NBA';;
-    label: "NBA Teams"
-  }
 
   dimension: nba_teams {
     sql: ${TABLE}."TEAM";;
