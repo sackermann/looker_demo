@@ -244,6 +244,15 @@ view: sprt_vwrshp_sumr {
     group_label: "League Filter"
   }
 
+  filter: dallas_mavericks_test {
+    sql:
+      CASE
+        WHEN ${TABLE}."TEAM" = 'Dallas Mavericks' THEN 'Dallas Mavericks'
+        ELSE NULL
+        END;;
+    group_label: "NBA Teams"
+  }
+
 
   dimension: dallas_mavericks {
     sql:
