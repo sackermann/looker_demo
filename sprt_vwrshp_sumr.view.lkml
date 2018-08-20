@@ -239,4 +239,10 @@ view: sprt_vwrshp_sumr {
     default_value: "NHL"
     suggestions: ["NHL"]
   }
+
+  filter: team_selector {
+    type: string
+    label: "NBA Teams"
+    sql: ${TABLE}."TEAM" ;;
+  }
 }
