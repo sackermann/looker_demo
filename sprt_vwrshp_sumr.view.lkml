@@ -244,6 +244,15 @@ view: sprt_vwrshp_sumr {
     group_label: "League Filter"
   }
 
+  filter: dallas_mavericks_filter {
+    type: string
+    label: "Dallas Mavericks"
+    sql: ${TABLE}."TEAM" = 'Dallas Mavericks' ;;
+    default_value: "Dallas Mavericks"
+    suggestions: ["Dallas Mavericks"]
+    group_label: "NBA Team Filter"
+  }
+
   dimension: dallas_mavericks {
     sql:
       CASE
