@@ -241,7 +241,7 @@ view: sprt_vwrshp_sumr {
   }
 
   dimension: nba_teams {
-    sql: ${TABLE}."TEAM" WHERE ${TABLE}."LEAGUE" = 'NBA';;
+    sql: ${TABLE}."TEAM";;
     group_label: "NBA Teams"
   }
 }
