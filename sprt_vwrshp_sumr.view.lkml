@@ -248,7 +248,7 @@ view: sprt_vwrshp_sumr {
     type: string
     sql:
       CASE
-        WHEN ${TABLE}."TEAM" = 'Dallas Mavericks' THEN 'Dallas Mavericks'
+        WHEN ${TABLE}."TEAM" = 'Dallas Mavericks' THEN 'Dallas Mavericks'::VARCHAR
         ELSE NULL
         END;;
     #group_label: "NBA Teams"
