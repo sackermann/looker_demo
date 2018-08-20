@@ -245,8 +245,13 @@ view: sprt_vwrshp_sumr {
   }
 
 
-  dimension: nba_teams {
-    sql: ${TABLE}."TEAM";;
+  dimension: nba_dallas {
+    sql: ${TABLE}."TEAM" = 'Dallas Mavericks';;
+    group_label: "NBA Teams"
+  }
+
+  dimension: nba_los_angeles {
+    sql: ${TABLE}."TEAM" = 'Los Angeles Lakers' ;;
     group_label: "NBA Teams"
   }
 }
