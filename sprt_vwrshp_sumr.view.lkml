@@ -245,12 +245,15 @@ view: sprt_vwrshp_sumr {
   }
 
 
-  dimension: nba_dallas {
-    sql: ${TABLE}."TEAM" = 'Dallas Mavericks';;
+  dimension: dallas_mavericks {
+    sql:
+      CASE
+        WHEN ${TABLE}."TEAM" = 'Dallas Mavericks' THEN 'Dallas Mavericks'
+        END;;
     group_label: "NBA Teams"
   }
 
-  dimension: nba_los_angeles {
+  dimension: los_angeles_lakers {
     sql: ${TABLE}."TEAM" = 'Los Angeles Lakers' ;;
     group_label: "NBA Teams"
   }
