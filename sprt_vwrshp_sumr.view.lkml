@@ -245,6 +245,7 @@ view: sprt_vwrshp_sumr {
   }
 
   filter: dallas_mavericks_test {
+    type: string
     sql:
       CASE
         WHEN ${TABLE}."TEAM" = 'Dallas Mavericks' THEN 'Dallas Mavericks'
