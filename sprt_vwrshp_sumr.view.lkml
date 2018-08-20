@@ -261,4 +261,58 @@ view: sprt_vwrshp_sumr {
     suggestions: ["Los Angeles Lakers"]
     group_label: "NBA Team Filter"
   }
+
+  filter: dallas_cowboys_filter {
+    type: string
+    label: "Dallas Cowboys"
+    sql: ${TABLE}."TEAM" = 'Dallas Cowboys' ;;
+    default_value: "Dallas Cowboys"
+    suggestions: ["Dallas Cowboys"]
+    group_label: "NFL Team Filter"
+  }
+
+  filter: seattle_seahawks_filter {
+    type: string
+    label: "Seattle Seahawks"
+    sql: ${TABLE}."TEAM" = 'Seattle Seahawks' ;;
+    default_value: "Seattle Seahawks"
+    suggestions: ["Seattle Seahawks"]
+    group_label: "NFL Team Filter"
+  }
+
+  filter: dallas_stars_filter {
+    type: string
+    label: "Dallas Stars"
+    sql: ${TABLE}."TEAM" = 'Dallas Stars' ;;
+    default_value: "Dallas Stars"
+    suggestions: ["Dallas Stars"]
+    group_label: "NHL Team Filter"
+  }
+
+  filter: san_jose_sharks_filter {
+    type: string
+    label: "San Jose Sharks"
+    sql: ${TABLE}."TEAM" = 'San Jose Sharks' ;;
+    default_value: "San Jose Sharks"
+    suggestions: ["San Jose Sharks"]
+    group_label: "NHL Team Filter"
+  }
+
+  filter: seattle_mariners_filter {
+    type: string
+    label: "Seattle Mariners"
+    sql: ${TABLE}."TEAM" = 'Seattle Mariners' ;;
+    default_value: "Seattle Mariners"
+    suggestions: ["Seattle Mariners"]
+    group_label: "MLB Team Filter"
+  }
+
+  filter: texas_rangers_filter {
+    type: string
+    label: "Texas Rangers"
+    sql: ${TABLE}."TEAM" = 'Texas Rangers' ;;
+    default_value: "Texas Rangers"
+    suggestions: ["Texas Rangers"]
+    group_label: "MLB Team Filter"
+  }
 }
