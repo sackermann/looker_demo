@@ -253,17 +253,12 @@ view: sprt_vwrshp_sumr {
     group_label: "NBA Team Filter"
   }
 
-  dimension: dallas_mavericks {
-    sql:
-      CASE
-        WHEN ${TABLE}."TEAM" = 'Dallas Mavericks' THEN 'Dallas Mavericks'
-        ELSE NULL
-        END;;
-    group_label: "NBA Teams"
-  }
-
-  dimension: los_angeles_lakers {
+  filter: los_angeles_lakers_filter {
+    type: string
+    label: "Los Angeles Lakers"
     sql: ${TABLE}."TEAM" = 'Los Angeles Lakers' ;;
-    group_label: "NBA Teams"
+    default_value: "Los Angeles Lakers"
+    suggestions: ["Los Angeles Lakers"]
+    group_label: "NBA Team Filter"
   }
 }
