@@ -433,4 +433,12 @@ view: ntwk_titl_vwrshp_sumr {
     sql:  ${TABLE}."TOT_ADJ_VW_DUR_IN_MIN";;
     value_format: "#,##0"
   }
+
+  measure: last_updated_date {
+    type: date
+    sql: MAX(${date_raw}) ;;
+    convert_tz: no
+  }
+
+
 }
