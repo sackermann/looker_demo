@@ -54,6 +54,11 @@ view: ntwk_titl_vwrshp_sumr {
   dimension: epsd_title_nm {
     type: string
     sql: ${TABLE}."EPSD_TITLE_NM" ;;
+    link: {
+      label: "Test Link"
+      url: "https://att-looker-demo.launchdevlabs.com/looks/1"
+
+    }
   }
 
   dimension: exclsv_cntnt_ind {
