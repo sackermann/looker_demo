@@ -4,7 +4,7 @@ connection: "snowflake_att"
 include: "*.view"
 
 # include all the dashboards
-include: "*.dashboard"
+# include: "*.dashboard"
 
 datagroup: snowflake_demo_att_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -20,6 +20,8 @@ explore: channel_daily_trunc{}
 explore: temp_dtv_sumr{}
 explore: sprt_vwrshp_sumr{}
 explore: snowflake_parquet{}
+
+explore: ab_traits {}
 
 #### DIM TABLES ####
 explore: vdo_chnl_dim {hidden: yes}
