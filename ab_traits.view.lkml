@@ -1,6 +1,28 @@
 view: ab_traits {
   sql_table_name: PUBLIC.AB_TRAITS ;;
 
+  dimension: traits {
+    label: "9. Traits"
+    case: {
+      when: {
+        sql: ${h_dtv_genre_auto} = 'HEAVY' ;;
+        label: "Action Sports - Heavy"
+        }
+      when: {
+        sql: ${h_dtv_genre_auto} = 'LIGHT' ;;
+        label: "Action Sports - Light"
+      }
+      when: {
+        sql: ${h_dtv_genre_children} = 'MEDIUM' ;;
+        label: "Childrens Genre - Medium"
+      }
+      when: {
+        sql: ${h_dtv_genre_children} = 'LIGHT' ;;
+        label: "Childrens Genre - Light"
+      }
+    }
+  }
+
   dimension: dest_adid {
     type: string
     sql: ${TABLE}."DEST_ADID" ;;
