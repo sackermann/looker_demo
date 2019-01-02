@@ -291,6 +291,12 @@ view: brd1 {
     view_label: "Viewership Audience - Fields - Advanced"
   }
 
+  dimension: vdo_play_type_nm {
+    type: string
+    sql: ${TABLE}."VDO_PLAY_TYPE_NM" ;;
+    label: "5. Playback Type"
+  }
+
 
 ##### MEASURES #####
 
@@ -310,12 +316,7 @@ measure: tot_adj_visit_cnt {
 measure: visitor_cnt {
   type: count_distinct
   label: "1. Total Households"
-  sql_distinct_key: ${mac_hh_id} ;;
-  html: {% if value < 25 %}
-            25
-          {% else %}
-            {{rendered_value}}
-          {% endif %};;
+  sql: ${mac_hh_id} ;;
   value_format_name: decimal_0
 }
 
@@ -323,11 +324,6 @@ measure: tot_adj_view_dur_in_mins {
   type: sum
   label: "3. Total View Duration in Mins"
   sql: ${tot_adj_vw_dur_in_min} ;;
-  html: {% if value < 25 %}
-            25
-          {% else %}
-            {{rendered_value}}
-          {% endif %};;
   value_format: "#,##0"
 }
 
@@ -828,11 +824,6 @@ measure: tot_adj_view_dur_in_mins {
     type: string
     sql: ${TABLE}."VDO_PLAY_TYPE_KEY" ;;
     hidden: yes
-  }
-
-  dimension: vdo_play_type_nm {
-    type: string
-    sql: ${TABLE}."VDO_PLAY_TYPE_NM" ;;
   }
 
   dimension: vdo_prd_ln_key {
