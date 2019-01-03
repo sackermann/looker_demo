@@ -20,6 +20,22 @@ view: ab_traits {
         sql: ${h_dtv_genre_children} = 'LIGHT' ;;
         label: "Childrens Genre - Light"
       }
+      when: {
+        sql: ${h_dtv_hh_demo_i2_marital_status} = 'MARRIED' ;;
+        label: "Marital Status - Married"
+      }
+      when: {
+        sql: ${h_dtv_hh_demo_i3_individual_education} = 'NULL' ;;
+        label: "Education - No College"
+      }
+      when: {
+        sql: ${h_dtv_hh_demo_i3_individual_education} = 'SOME COLLEGE' ;;
+        label: "Education - Some College"
+      }
+      when: {
+        sql: ${h_dtv_hh_demo_i3_individual_education} = 'BACHELOR DEGREE' ;;
+        label: "Education - Bachelor Degree"
+      }
     }
   }
 
