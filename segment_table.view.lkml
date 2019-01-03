@@ -5,13 +5,13 @@ view: segment_table {
     type: string
     sql: ${TABLE}."MAC_HH_ID" ;;
     hidden: no
-    label: "Segment Household IDs"
+    label: "FOR TEST - Segment HH IDs"
   }
 
   dimension: segment_id {
     type: string
     sql: ${TABLE}."SEGMENT_ID" ;;
-    label: "Segment ID"
+    label: "FOR TEST - Segment ID"
   }
 
   measure: segment_households {

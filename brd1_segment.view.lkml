@@ -190,7 +190,7 @@ view: brd1_segment {
     sql: ${TABLE}."FEED_PRNT_NM" ;;
     label: "2. Network Feed"
     group_label: "1. Network"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: locl_chnl_ind {
@@ -198,7 +198,7 @@ view: brd1_segment {
     sql: ${TABLE}."LOCL_CHNL_IND" ;;
     label: "4. Local Channel Indicator"
     group_label: "1. Network"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: movie_ind {
@@ -206,7 +206,7 @@ view: brd1_segment {
     sql: ${TABLE}."MOVIE_IND" ;;
     label: "1. Movie Indicator"
     group_label: "2. Shows"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: negotiating_enty_nm {
@@ -214,7 +214,7 @@ view: brd1_segment {
     sql: ${TABLE}."NEGOTIATING_ENTY_NM" ;;
     label: "1. Negotiating Entity"
     group_label: "1. Network"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: ntwrk_genre {
@@ -236,7 +236,7 @@ view: brd1_segment {
     sql: ${TABLE}."ORGNL_IND" ;;
     label: "2. Original Indicator"
     group_label: "2. Shows"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: pckg_nm {
@@ -265,7 +265,7 @@ view: brd1_segment {
     sql: ${TABLE}."PRMU_CHNL_IND" = 1;;
     label: "3. Premium Channel Indicator"
     group_label: "1. Network"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: prmu_sut_nm {
@@ -280,7 +280,7 @@ view: brd1_segment {
     sql: ${TABLE}."RPET_IND" ;;
     label: "3. Non-Live Indicator"
     group_label: "2. Shows"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: srs_prmr_ind {
@@ -288,7 +288,7 @@ view: brd1_segment {
     sql: ${TABLE}."SRS_PRMR_IND" ;;
     label: "4. Series Premier Indicator"
     group_label: "2. Shows"
-    view_label: "Viewership Audience - Fields - Advanced"
+    view_label: "Analyze Your Own Segment - Fields - Advanced"
   }
 
   dimension: vdo_play_type_nm {
