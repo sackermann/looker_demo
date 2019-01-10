@@ -12,6 +12,7 @@ view: segment_table {
     type: string
     sql: ${TABLE}."SEGMENT_ID" ;;
     label: "FOR TEST - Segment ID"
+    suggestable: no
   }
 
   measure: segment_households {
