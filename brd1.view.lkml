@@ -324,6 +324,7 @@ measure: tot_adj_view_dur_in_mins {
   type: sum
   label: "3. Total View Duration in Mins"
   sql: ${tot_adj_vw_dur_in_min} ;;
+  sql_distinct_key: ${mac_hh_id} ;;
   value_format: "#,##0"
 }
 
