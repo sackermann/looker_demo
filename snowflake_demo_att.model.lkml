@@ -41,7 +41,6 @@ explore: brd1_segment {
   view_label: "Analyze Your Own Segment"
   join: segment_table {
     view_label: "Analyze Your Own Segment"
-    type: left_outer
     relationship: many_to_many
     sql_on: ${segment_table.mac_hh_id} = ${brd1_segment.mac_hh_id} ;;
   }
