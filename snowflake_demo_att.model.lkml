@@ -25,10 +25,10 @@ explore: snowflake_parquet{}
 
 explore: brd1 {
   label: "Viewership Audience Explorer"
-  view_label: "Viewership Audicence - Attributes and Filters"
+  view_label: "Viewership Audience - Attributes and Filters"
   sql_always_where: ${ntwrk_nm} IS NOT NULL ;;
   join: ab_traits {
-    view_label: "Viewership Audicence - Attributes and Filters"
+    view_label: "Viewership Audience - Attributes and Filters"
     type: inner
     relationship: many_to_many
     sql_on: ${brd1.mac_hh_id} = ${ab_traits.machouseholdid} ;;
