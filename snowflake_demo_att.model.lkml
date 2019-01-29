@@ -20,6 +20,7 @@ explore: channel_daily_trunc{}
 explore: temp_dtv_sumr{}
 explore: sprt_vwrshp_sumr{}
 explore: snowflake_parquet{}
+explore: fake_data {}
 
 
 
